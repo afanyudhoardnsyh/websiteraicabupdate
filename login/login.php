@@ -40,7 +40,7 @@
                         <form action="../login/welcome.php" method="post">
                             <input type="email" class="email" name="email" placeholder="Masukkan Email" required>
                             <input type="password" class="password" name="password" placeholder="Masukkan Password" style="margin-bottom: 2px;" required>
-                            <button name="submit" name="submit" class="btn" type="submit">Masuk</button>
+                            <button value="submit" name="submit" class="btn" type="submit">Masuk</button>
                         </form>
                         <div class="social-icons">
                             <p>Belum punya akun? <a href="../login/register.php">Daftar</a></p>

@@ -1,3 +1,13 @@
+<?php 
+
+include '../koneksi/config.php';
+
+$query_kwarran = "SELECT * FROM kwarran";
+$result = $conn->query($query_kwarran);
+$datakwarran = $result;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +51,13 @@
 
                         <div class="input-field">
                             <label>Kwarran</label>
-                            <input type="text" name="kwarran" placeholder="Masukkan Kwarran" required>
+                            <!-- <input type="text" name="kwarran" placeholder="Masukkan Kwarran" required> -->
+                            <select name="kwarran" required>
+                                <option disabled selected>Pilih Kwarran</option>
+                                <?php foreach ($datakwarran as $datakwarran) { ?>
+                                    <option value="<?=$datakwarran['nama_kwarran']?>"><?=$datakwarran['nama_kwarran']?></option>
+                                <?php } ?>
+                            </select>
                         </div>
 
                         <div class="input-field">

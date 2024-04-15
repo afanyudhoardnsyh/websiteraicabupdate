@@ -1,39 +1,35 @@
-<?php 
+<?php
 // mengaktifkan session pada php
 session_start();
 
 // menghubungkan php dengan koneksi database
 include '../login/config.php';
+$db = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
 // menangkap data yang dikirim dari form login
 $email = $_POST['email'];
 $password = $_POST['password'];
+$submit = $_POST['submit']; // changed from $login to $submit
 
+if ($submit === "submit") {
+    $error = array();
 
-// menyeleksi data user dengan email dan password yang sesuai
-$login = mysqli_query($conn, "select * from users where email='$email' and password='$password'");
-// menghitung jumlah data yang ditemukan
-$cek = mysqli_num_rows($login);
-
-// cek apakah email dan password di temukan pada database
-if($cek > 0){
-
-	$data = mysqli_fetch_assoc($login);
-
-	// cek jika user login 
-	if($_SESSION['email'] = $email){
-
-		// buat session login dan email
-		$_SESSION['email'] = $email;
-		// alihkan ke halaman dashboard admin
-		header("location: ../dashboard/dashboard.php");
-
-	// cek jika user login sebagai user
-	} else{
-
-		//  alihkan ke halaman login kembali
-		header("location:login.php?pesan=gagal");
-	}	
-}else{
-	header("location:login.php?pesan=gagal");
+    // cek data login ke database
+    if (empty($error)) {
+        $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+        $result = $db->query($sql);
+        $row = $result->fetch_assoc();
+        if ($result->num_rows > 0) {
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['email'] = $row['email'];
+            header('location: ../dashboard/dashboard.php'); // assuming $urladmin is defined somewhere else
+            die();
+        } else {
+            // cek jika user login gagal
+            header("location:login.php?pesan=gagal");
+            exit(); // exit after redirection
+        }
+    }
 }
+?>
