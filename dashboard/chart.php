@@ -34,3 +34,5 @@ while ($row = mysqli_fetch_assoc($data_chart_query)) {
         </div>
     </div>
 </div>
+
+

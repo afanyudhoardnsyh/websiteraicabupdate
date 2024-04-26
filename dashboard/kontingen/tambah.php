@@ -54,6 +54,17 @@ $datakwarran = $result;
                             <!-- <input type="text" name="kwarran" placeholder="Masukkan Kwarran" required> -->
                             <select name="kwarran" required>
                                 <option disabled selected>Pilih Kwarran</option>
+                                <option>Pancoran Mas</option>
+                                <option>Cipayung</option>
+                                <option>Sawangan</option>
+                                <option>Bojongsari</option>
+                                <option>Cinere</option>
+                                <option>Limo</option>
+                                <option>Beji</option>
+                                <option>Cimanggis</option>
+                                <option>Tapos</option>
+                                <option>Sukmajaya</option>
+                                <option>Cilodong</option>
                                 <?php foreach ($datakwarran as $datakwarran) { ?>
                                     <option value="<?=$datakwarran['nama_kwarran']?>"><?=$datakwarran['nama_kwarran']?></option>
                                 <?php } ?>

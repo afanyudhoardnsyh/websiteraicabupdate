@@ -1,9 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 body {
     background-color: #f2f2f2;
     color: #000;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'poppins', sans-serif;
+}
+
+.card h2{
+  margin-top: 1rem;
 }
 
 .column-chart {
@@ -162,7 +166,7 @@ body {
   height: 26px;
   line-height: 26px;
   color: #fff;
-  background-color: #3e50b4;
+  background-color: #1786bd;
   font-size: 14px;
   font-weight: 700;
   text-align: center;
@@ -181,7 +185,7 @@ body {
 
 .column-chart > .chart > .item > .bar > .item-progress > .title {
   position: absolute;
-  top: calc(50% - 13px);
+  top: calc(50% - 30px);
   left: 50%;
   font-size: 14px;
   text-align: center;

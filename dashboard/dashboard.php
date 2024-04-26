@@ -16,6 +16,11 @@ include 'koneksi/config.php';
 
 $data_peserta = mysqli_query($conn ,"SELECT * FROM peserta");
 $jumlah_peserta = mysqli_num_rows($data_peserta);
+
+$sql = "SELECT *FROM pembayaran";
+$result = $conn->query($sql);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +60,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="berkas.php">
+                <a href="../dashboard/berkas/berkas.php">
                 <span class="material-symbols-outlined">
                         folder
                 </span>
@@ -80,7 +85,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                     <h3>Bukti Pembayaran</h3>
                     <!-- <span class="message-count">27</span> -->
                 </a>
-                <a href="../home.php">
+                <a href="../index.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -99,15 +104,10 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                     <div class="status">
                         <div class="info">
                             <h3>Jumlah Peserta</h3>
-                            <h1><?php echo $jumlah_peserta; ?></h1>
+                            <h1><?php echo $jumlah_peserta; ?> Orang</h1>
                         </div>
                         <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p><?php echo $jumlah_peserta / 100; ?>%</p>
-                            </div>
+                            <i class="fa-solid fa-circle-user"></i>
                         </div>
                     </div>
                 </div>
@@ -115,38 +115,15 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                     <div class="status">
                         <div class="info">
                             <h3>Data Kontingen</h3>
-                            <h1>11</h1>
+                            <h1>11 Kontingen</h1>
                         </div>
                         <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+21%</p>
-                            </div>
+                            <i class="fa-solid fa-circle-user"></i>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End of Analyses -->
-
-            <!-- Data Kontingen Table -->
-            <!-- <div class="recent-orders">
-                <h2>Data Berkas Kontingen</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Kontingen</th>
-                            <th>Jumlah Peserta</th>
-                            <th>Pembayaran</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <a href="#">Show All</a>
-            </div> -->
 
             <?php include 'chart.php'; ?>
 
@@ -155,6 +132,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                 <table>
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Kontingen</th>
                             <th>Jumlah Peserta</th>
                             <th>Pembayaran</th>
@@ -162,9 +140,33 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                    <?php 
+                        $no = 1;
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $row['kwarran']; ?></td>
+                                    <td><?php echo $row['jumlah']; ?></td>
+                                    <td>Sukses</td>
+                                    <td>Aktif</td>
+                                    
+                                </tr>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <tr>
+                                <td colspan="6"><br>Belum ada file yang diupload</td>
+                            </tr>
+                            <?php
+                        }
+                    ?>
+                    </tbody>
                 </table>
-                <a href="#">Show All</a>
+                <a href="#" class="show">Show All</a>
             </div>
             <!-- End of Recent Orders -->
             
@@ -174,7 +176,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
         <!-- Right Section -->
         <div class="right-section">
             <div class="nav">
-                <button id="menu-btn">
+                <!-- <button id="menu-btn">
                     <span class="material-icons-sharp">
                         menu
                     </span>
@@ -186,9 +188,8 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                     <span class="material-icons-sharp">
                         dark_mode
                     </span>
-                </div>
+                </div> -->
                 
-
                 <div class="profile">
                     <div class="info">
                         <p>Hey, <b> <?=$name?></b></p>
@@ -241,8 +242,6 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
 
         </div>
     </div>
-
-    <script src="../dashboard/asset/js/tabel.js"></script>
     <script src="../dashboard/asset/js/index.js"></script>
     <script src="../dashboard/asset/js/charts.js"></script>
 </body>

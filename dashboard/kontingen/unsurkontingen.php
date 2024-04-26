@@ -1,3 +1,23 @@
+<?php
+// Start session
+session_start();
+
+// Check if the user is logged in
+if(isset($_SESSION['name'])) {
+    // Assign the name to the $name variable
+    $name = $_SESSION['name'];
+} else {
+    // If not logged in, redirect to login page or handle accordingly
+    header("masjhiuh");
+    exit(); // Stop further execution
+}
+
+include '../koneksi/config.php';
+
+$data_peserta = mysqli_query($conn ,"SELECT * FROM peserta");
+$jumlah_peserta = mysqli_num_rows($data_peserta);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +52,7 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="../berkas.php">
+                <a href="../berkas/berkas.php">
                 <span class="material-symbols-outlined">
                         folder
                 </span>
@@ -57,7 +77,7 @@
                     <h3>Bukti Pembayaran</h3>
                     <!-- <span class="message-count">27</span> -->
                 </a>
-                <a href="/WebsiteRaicabCopy/home.php">
+                <a href="/WebsiteRaicabUpdate/index.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -105,6 +125,7 @@
                         }
                         ?>
                 </table>
+                <a href="#" class="show">Show All</a>
             </div>
         <!-- End of Table -->
 
@@ -131,7 +152,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Afan</b></p>
+                        <p>Hey, <b> <?=$name?></b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">

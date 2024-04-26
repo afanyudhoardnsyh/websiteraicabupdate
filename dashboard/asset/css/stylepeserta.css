@@ -251,7 +251,15 @@ main table tbody tr:last-child td{
     border: none;
 }
 
-.recent-orders a{
+.recent-orders .show{
+    text-align: center;
+    display: block;
+    align-items: center;
+    margin: 1rem auto;
+    color:#1786bd;
+}
+
+.recent-orders .tambah{
     display: flex;
     float: right;
     align-items: center;
@@ -267,20 +275,20 @@ main table tbody tr:last-child td{
     margin-bottom: 1rem;
 }
 
-.recent-orders a:hover{
+.recent-orders .tambah:hover{
     background-color: #007cba;
 }
 
-.recent-orders a span{
+.recent-orders .tambah span{
     font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
-.recent-orders a h3{
+.recent-orders .tambah h3{
     font-size: 12px;
 }
 
-.recent-orders a:last-child{
+.recent-orders .tambah:last-child{
     position: absolute;
     bottom: 2rem;
     width: 100%;

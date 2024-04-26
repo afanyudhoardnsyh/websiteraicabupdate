@@ -18,7 +18,7 @@ $golongan = $_POST['golongan'];
 mysqli_query($conn, "insert into unsur_kontingen (nama, ttl, kategori, kwarran, jenis_kelamin, nohp, ukuran_kaos, serti, bpjs, golongan) 
             values ('$nama','$ttl','$kategori','$kwarran','$jk','$nohp','$ukkaos','$serti','$bpjs','$golongan')");
 
-// mengalihkan halaman kembali ke index.php
+// mengalihkan halaman kembali ke unsurkontigen.php
 header("location: ../kontingen/unsurkontingen.php");
 
 ?>

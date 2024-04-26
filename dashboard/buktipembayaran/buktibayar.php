@@ -1,3 +1,41 @@
+<?php
+// Start session
+session_start();
+
+// Check if the user is logged in
+if(isset($_SESSION['name'])) {
+    // Assign the name to the $name variable
+    $name = $_SESSION['name'];
+} else {
+    // If not logged in, redirect to login page or handle accordingly
+    header("masjhiuh");
+    exit(); // Stop further execution
+}
+
+include '../koneksi/config.php';
+
+//Fetch the uploaded files from the database
+$sql = "SELECT *FROM pembayaran";
+$bayar = $conn->query($sql);
+
+$data_nominal_query = mysqli_query($conn, "SELECT SUM(nominal) AS total_nominal FROM pembayaran");
+
+// Fetching total nominal properly
+$data_nominal = [];
+while ($row = mysqli_fetch_assoc($data_nominal_query)) {
+    $data_nominal[] = $row;
+}
+
+$data_terdaftar_query = mysqli_query($conn, "SELECT SUM(jumlah) AS total_terdaftar FROM pembayaran");
+
+// Fetching total terdaftar properly
+$data_terdaftar = [];
+while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
+    $data_terdaftar[] = $row;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +70,7 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="berkas.php">
+                <a href="../berkas/berkas.php">
                 <span class="material-symbols-outlined">
                         folder
                 </span>
@@ -57,7 +95,7 @@
                     <h3>Bukti Pembayaran</h3>
                     <!-- <span class="message-count">27</span> -->
                 </a>
-                <a href="/WebsiteRaicabCopy/home.php">
+                <a href="/WebsiteRaicabUpdate/index.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -76,31 +114,12 @@
                     <div class="status">
                         <div class="info">
                             <h3>Total Peserta dan Unsur Kontingen</h3>
-                            <h1>65,024</h1>
+                            <?php foreach ($data_terdaftar as $data) { ?>
+                                <h1><?php echo number_format($data['total_terdaftar']); ?> Orang</h1>
+                            <?php } ?>
                         </div>
                         <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+81%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="kontingen">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Total Terdaftar</h3>
-                            <h1>24,981</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>-48%</p>
-                            </div>
+                            <i class="fa-solid fa-circle-user"></i>
                         </div>
                     </div>
                 </div>
@@ -108,15 +127,12 @@
                     <div class="status">
                         <div class="info">
                             <h3>Total Nominal</h3>
-                            <h1>14,147</h1>
+                            <?php foreach ($data_nominal as $data) { ?>
+                                <h1>Rp. <?php echo number_format($data['total_nominal']); ?></h1>
+                            <?php } ?>
                         </div>
                         <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+21%</p>
-                            </div>
+                            <img src="../asset/image/rupiah_biru.png">
                         </div>
                     </div>
                 </div>
@@ -125,23 +141,50 @@
 
         <!-- Table -->
             <div class="recent-orders">
-                <a href="../peserta/tambah.php" class="tambah">
+                <a href="../buktipembayaran/tambah.php" class="tambah">
                     <span class="material-symbols-outlined">add</span>
                     <h3>Add Pembayaran</h3>
                 </a>
                 <table>
                     <thead>
                         <tr>
-                        <th>No</th>
+                            <th>No</th>
+                            <th>Kwarran</th>
                             <th>Jumlah Terdaftar</th>
                             <th>Nominal</th>
                             <th>Bukti Pembayaran</th>
-                            <th></th>
+                            <th>Waktu Upload</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <?php 
+                        $no = 1;
+                        if ($bayar->num_rows > 0) {
+                            while ($row = $bayar->fetch_assoc()) {
+                                $file_path = "./uploadBukti/" . $row['filename'];
+                                ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $row['kwarran']; ?></td>
+                                    <td><?php echo $row['jumlah']; ?></td>
+                                    <td>Rp. <?php echo number_format($row['nominal']); ?></td>
+                                    <td><a href="<?php echo $file_path; ?>"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                    <td><?php echo $row['upload_date']; ?></td>
+                                    
+                                </tr>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <tr>
+                                <td colspan="6"><br>Belum ada file yang diupload</td>
+                            </tr>
+                            <?php
+                        }
+                    ?>
                 </table>
+                <a href="#" class="show">Show All</a>
             </div>
+            
         <!-- End of Table -->
 
 
@@ -167,7 +210,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Afan</b></p>
+                        <p>Hey, <b> <?=$name?></b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">

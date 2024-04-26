@@ -221,7 +221,7 @@ main{
 
 main .dashboard{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
 }
 
@@ -250,54 +250,13 @@ main .dashboard h3{
     font-size: 0.8rem;
 }
 
-main .dashboard .progresss{
-    position: relative;
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
+main .dashboard .progresss i{
+    font-size: 5rem;
+    color: var(--color-primary);
 }
 
-main .dashboard svg{
-    width: 7rem;
-    height: 7rem;
-}
-
-main .dashboard svg circle{
-    fill: none;
-    stroke-width: 10;
-    stroke-linecap: round;
-    transform: translate(5px, 5px);
-}
-
-main .dashboard .peserta svg circle{
-    stroke: var(--color-danger);
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
-}
-
-main .dashboard .kontingen svg circle{
-    stroke: var(--color-primary);
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
-}
-
-main .dashboard .nominal svg circle{
-    stroke: var(--color-payment);
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
-}
-
-
-
-main .dashboard .progresss .percentage{
-    position: absolute;
-    top: -3px;
-    left: -1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+main .dashboard .progresss img {
+    width: 5rem;
 }
 
 main .recent-orders{
@@ -332,7 +291,7 @@ main table tbody tr:last-child td{
     border: none;
 }
 
-.recent-orders a{
+.recent-orders .tambah{
     display: flex;
     float: right;
     align-items: center;
@@ -348,24 +307,54 @@ main table tbody tr:last-child td{
     margin-bottom: 1rem;
 }
 
-.recent-orders a:hover{
+.recent-orders .tambah:hover{
     background-color: #007cba;
 }
 
-.recent-orders a span{
+.recent-orders .tambah span{
     font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
-.recent-orders a h3{
+.recent-orders .tambah h3{
     font-size: 12px;
 }
 
-.recent-orders a:last-child{
+.recent-orders .tambah:last-child{
     position: absolute;
     bottom: 2rem;
     width: 100%;
 }
+
+.recent-orders table .btnDownload{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    height: 2rem;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem 0.4rem 0.7rem;
+    border-radius: 5px;
+}
+
+/* css for status terkirim */
+.recent-orders table td a{
+    background-color: var(--color-success);
+    color: #fff;
+    padding: 0.2rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+.recent-orders table td i{
+    font-size: 11px;
+}
+
+.recent-orders .show{
+    text-align: center;
+    display: block;
+    align-items: center;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
 
 .right-section{
     margin-top: 1.4rem;
