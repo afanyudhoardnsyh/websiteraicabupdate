@@ -28,12 +28,12 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://kit.fontawesome.com/383c3b5422.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../dashboard/asset/css/styledashboard.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../dashboard/asset/css/styledashboard.css">
     <link rel="stylesheet" type="text/css" href="asset/css/charts.css">
     <title>Raicab | Dashboard</title>
 </head>
@@ -244,6 +244,7 @@ $result = $conn->query($sql);
     </div>
     <script src="../dashboard/asset/js/index.js"></script>
     <script src="../dashboard/asset/js/charts.js"></script>
+    
 </body>
 
 </html>
