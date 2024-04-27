@@ -1,0 +1,609 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #161645;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+header {
+    display: flex;
+    position:sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 14.5%;
+    padding: 10px;
+    background-color: #e69138;
+    z-index: 1;
+}
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0.3rem auto;
+}
+
+.navbar img{
+    margin-left: 0.7rem;
+    width: 4.3%;
+    float: left;
+}
+
+.navbar .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20.5px;
+    text-decoration: none;
+    margin-right: 2.6rem;
+}
+
+.navbar .menu-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0.8rem;
+}
+
+.navbar .menu-links a {
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    margin-right: 0.2rem;
+    transition: text-shadow .3s;
+}
+
+.navbar .menu-links a:hover{
+    color: white;
+    text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
+}
+
+.navbar .menu-links .active {
+    color: white;
+    font-weight: 700;
+}
+
+.navbar .menu-links .action_btn{
+    background-color: white;
+    color: #e69138;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 2px 8px 2px 8px;
+    border-radius: 8px;
+    margin-left: 4rem;
+    margin-right: 3.4rem;
+}
+
+.navbar .menu-links .action_btn:hover{
+    color: #e69138;
+}
+
+#close-menu-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+#hamburger-btn {
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/* popup script kegiatan section styling */
+.modal-header{
+    background-color: #e69138;
+    color: #fff;
+}
+
+.modal-header i{
+    color: black;
+    margin-left: 21rem;
+}
+
+.modal-header h1{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.modal-body{
+    text-align: justify;
+}
+
+/* kegiatan section styling */
+.kegiatan {
+    padding-bottom: 3rem;
+    background-color: #161645;
+    max-height: 90vh;
+}
+
+.kegiatan .max-width .title{
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+    margin: 1.6rem 0px 0px 0px;
+}
+
+.wrapper{
+    display: flex;
+    max-width: 1200px;
+    position: relative;
+    margin: 0.5rem auto;
+    padding-bottom: 2rem;
+}
+
+.wrapper i{
+    background-color: #e69138;
+    top: 50%;
+    height: 44px;
+    width: 44px;
+    color: #343F4F;
+    cursor: pointer;
+    font-size: 1.3rem;
+    position: absolute;
+    text-align: center;
+    line-height: 44px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+    z-index: 1;
+}
+
+.wrapper i:active{
+    transform: translateY(-50%) scale(0.9);
+}
+
+.wrapper i:hover{
+    background: #f2f2f2;
+}
+
+.wrapper i:first-child{
+    left: -22px;
+    display: none;
+}
+
+.wrapper i:last-child{
+    right: -22px;
+}
+
+.wrapper .carousel{
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    margin-top: 1rem;
+}
+
+.carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging img{
+    pointer-events: none;
+}
+
+.carousel img{
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    margin-left: 10px;
+    width: calc(80% / 5);
+}
+
+.carousel img:first-child{
+    margin-left: 0px;
+}
+
+
+/* contact section styling */
+.contact .max-width{
+    max-width: 1200px;
+    padding: 0 0px;
+    margin: auto;
+}
+
+.contact{
+    background-color: #18184d;
+    height: 573px;
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.contact .contact-content .column{
+    width: calc(44.5% - 50px);
+}
+
+.contact .contact-content .left img{
+    float: left;
+    width: 130px;
+    height: 162px;
+    margin-right: 1rem;   
+}
+
+.contact .contact-content .text-1{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 2rem 0rem 0rem 0rem;
+    padding: 2.5rem 0rem 0rem 0rem;
+}
+
+.contact .contact-content .text-2{
+    font-size: 24px;
+    position: relative;
+    font-weight: 600;
+    line-height: 1rem;
+}
+
+.contact .contact-content .text-3{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.contact .contact-content p{
+    margin-top: 4rem;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: justify;
+    line-height: 2rem;
+}
+
+.contact .contact-content .right{
+    position: absolute;
+    float: right;
+    left: 50%;
+    top: 124%;
+}
+
+.contact .contact-content .right .text{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact .contact-content .right .alamat{
+    position: absolute;
+    font-size: 1rem;
+    margin-left: 14.5rem;
+    margin-top: 1rem;
+}
+
+.contact .contact-content .right .alamat .text1{
+    font-weight: 700;
+}
+
+.contact .contact-content .right .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+
+.contact .contact-content .right .container{
+    background-color: rgba(0, 0, 0, 0.100);
+    padding: 0 auto;
+    border-radius: 5px;
+    height: 11.2rem;
+}
+
+.contact .contact-content .right iframe{
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.contact .contact-content .right .text-sosmed{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+/* footer section styling */
+footer{
+    background: #161645;
+    padding: 5px 19px;
+    color: #fff;
+    position: absolute;
+    top: 192%;
+}
+
+footer .info-footer .maskot{
+    margin-left: 25rem;
+    width: 3.5%;
+    padding-bottom: 0.3rem;
+}
+
+footer .info-footer .logo{
+    width: 2.2%;
+    margin-bottom: 3px;
+}
+
+footer .row .text{
+    position: absolute;
+    top: 27%;
+    left: 38%;
+    font-size: 1.2rem;
+}
+
+footer .row .text1{
+    position: absolute;
+    top: 27%;
+    left: 52.9%;
+}
+
+footer .row .text2{
+    position: absolute;
+    top: 27%;
+    left: 54%;
+    font-size: 1.2rem;
+}
+
+
+  /* responsive media query start */
+@media screen and (max-width: 900px) {
+    .carousel img{
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .kegiatan .max-width{
+        height: 37vh;
+    }
+
+    .kegiatan .max-width .title{
+        font-size: 20px;
+        margin: 8rem 0 0 3rem;
+        width: 80%;
+    }
+
+    .carousel{
+        margin: 0rem 2rem 0rem 2rem;
+    }
+
+    .carousel img{
+        margin-top: 1rem;
+        width: 20%;
+        height: auto;
+    }
+
+    .wrapper i{
+        top: 50%;
+        height: 25px;
+        width: 25px;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 25px;
+    }
+
+    .wrapper i:first-child{
+        left: 17px;
+    }
+    
+    .wrapper i:last-child{
+        right: 17px;
+    }
+
+    .contact .contact-content .column{
+        width: calc(95% - 0%);
+    }
+    
+    .contact .max-width{
+        margin-left: 1.5rem;
+    }
+    
+    .contact{
+        height: 64vh;
+        background-color: #18184d;
+        
+    }
+    
+    .contact .contact-content .left img{
+        width: 16%;
+        height: auto;
+        margin: 0px 0.6rem 0rem 0rem;  
+    }
+    
+    
+    .contact .contact-content .text-1{
+        padding-top: 0.8rem;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .contact .contact-content .text-2{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .contact .contact-content .text-3{
+        font-size: 12px;
+        font-weight: 400;
+    }
+    
+    .contact .contact-content p{
+        margin: 1.5rem auto;
+        font-size: 12px;
+        line-height: 1.2rem;
+    }
+    
+    .contact .contact-content .right{
+        position: absolute;
+        top: 92%;
+        left: 5.5%;
+    }
+    
+    .contact .contact-content .right .container{
+        width: 96%;
+        height: 30%;
+    }
+    
+    .contact .contact-content .right .text{
+        font-size: 16px;
+    }
+    
+    .contact .contact-content .right .alamat{
+        width: 50%;
+        font-size: 10px;
+        text-align: justify;
+        margin-left: 10rem;
+    }
+    
+    .contact .contact-content .right .info-sosmed{
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact .contact-content .right .info-sosmed .email{
+        width: 19px;
+        height: 20.5px;
+    }
+    
+    .contact .contact-content .right .info-sosmed .ig{
+        width: 15px;
+        height: 15px;
+    }
+    
+    .contact .contact-content .right iframe{
+        width: 130px;
+        height: 90px;
+    }
+    
+    footer{
+        display: fixed;
+        height: 5vh;
+        top: 117%;
+    }
+    
+    footer .info-footer{
+        background-color: #161645;
+    }
+    
+    footer .info-footer .maskot{
+        width: 7%;
+        margin-left: 1.2rem;
+    }
+    
+    footer .info-footer .logo{
+        width: 4%;
+    }
+    
+    footer .row .text{
+        left: 23%;
+        font-size: 12px;
+    }
+    
+    footer .row .text1{
+        font-size: 12px;
+    }
+    
+    footer .row .text2{
+        left: 55%;
+        font-size: 12px;
+    }
+    
+    
+    
+    .scroll-up-btn{
+        right: 15px;
+        bottom: 15px;
+        height: 38px;
+        width: 35px;
+        font-size: 23px;
+        line-height: 38px;
+    }
+}
+
+@media (max-width: 892px) {
+    header {
+        padding: 1px;
+    }
+    
+    header.show-mobile-menu::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+    }
+    
+    .navbar img{
+        width: 8%;
+    }
+    
+    .navbar .logo {
+        margin-left: 4rem;
+        font-size: 12px;
+    }
+    
+    #hamburger-btn{
+        margin-right: 1rem;
+    }
+
+    #hamburger-btn, #close-menu-btn {
+        display: block;
+    }
+    
+    .navbar .menu-links {
+        font-weight: 600;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        padding: 70px 40px 0;
+        transition: left 0.2s ease;
+        color: black;
+    }
+    
+    .navbar .menu-links .active{
+        color: black;
+    }
+    
+    .navbar .menu-links li a{
+        color: black;
+        transition: text-shadow .1s;
+    }
+    
+    .navbar .menu-links li a:hover{
+        color: black;
+        text-shadow: 0 0 .1px black, 0 0 .1px black, 0 0 .1px black;
+    }
+    
+    .navbar .menu-links .action_btn{
+        position: absolute;
+        color: white;
+        background-color: #e69138;
+        margin: 0 auto;
+        padding: 5px 4rem 5px 4rem;
+    }
+    
+    .navbar .menu-links .action_btn:hover{
+        background-color: #e69138;
+        color: white;
+    }
+    
+    
+    header.show-mobile-menu .navbar .menu-links {
+        left: 0;
+    }
+}
