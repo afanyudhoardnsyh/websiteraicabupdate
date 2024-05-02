@@ -39,7 +39,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat rutin adalah serangkaian kegiatan yang dilakukan secara teratur dalam periode waktu tertentu, membantu menciptakan struktur, produktivitas, dan keseimbangan dalam kehidupan sehari-hari.
+                Giat Rutin adalah serangkaian kegiatan yang dilakukan secara teratur dalam periode waktu tertentu, membantu menciptakan struktur, produktivitas, dan keseimbangan dalam kehidupan sehari-hari.
             </div>
             
         </div>
@@ -55,7 +55,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat umum adalah kegiatan yang dilakukan tanpa pola waktu atau jadwal tetap, bersifat spontan dan biasa dilakukan oleh banyak orang.
+                Giat Umum adalah kegiatan yang dilakukan tanpa pola waktu atau jadwal tetap, bersifat spontan dan biasa dilakukan oleh banyak orang.
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat budaya adalah kegiatan yang melibatkan masyarakat dalam menjaga dan menghargai aspek kebudayaan, seperti seni, tradisi, atau perayaan.
+                Giat Budaya adalah kegiatan yang melibatkan masyarakat dalam menjaga dan menghargai aspek kebudayaan, seperti seni, tradisi, atau perayaan.
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat wawasan adalah upaya meningkatkan pemahaman dan pengetahuan lintas bidang untuk pengembangan pengetahuan yang lebih luas.            
+                Giat Wawasan adalah upaya meningkatkan pemahaman dan pengetahuan lintas bidang untuk pengembangan pengetahuan yang lebih luas.            
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat prestasi adalah usaha mencapai kinerja unggul dalam berbagai bidang, seperti pendidikan, karier, atau olahraga.
+                Giat Prestasi adalah usaha mencapai kinerja unggul dalam berbagai bidang, seperti pendidikan, karier, atau olahraga.
             </div>
         </div>
     </div>
@@ -130,7 +130,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat outdoor activity adalah kegiatan di luar ruangan melibatkan interaksi alam, seperti hiking, camping, atau olahraga outdoor.
+                Giat Outdoor Activity adalah kegiatan di luar ruangan melibatkan interaksi alam, seperti hiking, camping, atau olahraga outdoor.
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat wisata adalah kegiatan yang melibatkan perjalanan atau kunjungan ke tempat-tempat menarik untuk tujuan rekreasi, hiburan, atau eksplorasi.
+                Giat Wisata adalah kegiatan yang melibatkan perjalanan atau kunjungan ke tempat-tempat menarik untuk tujuan rekreasi, hiburan, atau eksplorasi.
             </div>
         </div>
     </div>
@@ -175,7 +175,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
-                Giat funsport adalah kegiatan olahraga yang menyenangkan dan santai, seperti ultimate frisbee, beach volleyball, atau sepak bola pantai.
+                Giat Funsport adalah kegiatan olahraga yang menyenangkan dan santai, seperti ultimate frisbee, beach volleyball, atau sepak bola pantai.
             </div>
         </div>
     </div>
