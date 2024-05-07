@@ -51,12 +51,12 @@ include '../koneksi/config.php';
 
                         <div class="input-field">
                             <label>Jumlah Terdaftar</label>
-                            <input type="number" name="jumlah" placeholder="Masukkan Jumlah Terdaftar" required>
+                            <input type="number" name="jumlah" id="jumlah" placeholder="Masukkan Jumlah Terdaftar" required>
                         </div>
 
                         <div class="input-field">
                             <label>Nominal</label>
-                            <input type="number" name="nominal" placeholder="Masukkan Nominal Pembayaran" required>
+                            <input type="number" name="nominal" id="nominal" placeholder="Masukkan Nominal Pembayaran" required>
                         </div>
 
                         <div class="input-field">
@@ -75,5 +75,26 @@ include '../koneksi/config.php';
         </form>
         </div>
     </div>
+
+    <script>
+            // Ambil elemen input jumlah dan nominal
+            var inputJumlah = document.getElementById('jumlah');
+            var inputNominal = document.getElementById('nominal');
+
+            // Tambahkan event listener untuk mendeteksi perubahan nilai pada input jumlah
+            inputJumlah.addEventListener('input', function() {
+                // Ambil nilai jumlah dari input jumlah
+                var jumlah = parseFloat(inputJumlah.value);
+                
+                // Validasi apakah jumlah sudah diisi dan lebih dari 0
+                if (!isNaN(jumlah) && jumlah > 0) {
+                    // Isi otomatis nilai nominal dengan nilai jumlah
+                    inputNominal.value = jumlah * 175000;
+                } else {
+                    // Kosongkan nilai nominal jika jumlah tidak valid
+                    inputNominal.value = '';
+                }
+            });
+        </script>
 </body>
 </html>
