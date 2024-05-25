@@ -41,6 +41,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../asset/image/favicon.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script src="https://kit.fontawesome.com/383c3b5422.js" crossorigin="anonymous"></script>
