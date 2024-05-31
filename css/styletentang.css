@@ -1,0 +1,900 @@
+/* Importing Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #e69138;
+    z-index: 100;
+
+}
+
+header .navbar {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 1.3rem auto;
+}
+
+.navbar img{
+    position: absolute;
+    left: 6.2%;
+    top: 23%;
+    width: 3.8%;
+    float: left;
+}
+
+.navbar .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 4.5rem;
+}
+
+.navbar .menu-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.navbar .menu-links a {
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    margin-right: 0.2rem;
+    transition: text-shadow .3s;
+}
+
+.navbar .menu-links a:hover{
+    color: white;
+    text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
+}
+
+.navbar .menu-links .active {
+    color: white;
+    font-weight: 700;
+}
+
+.navbar .menu-links .action_btn{
+    background-color: white;
+    color: #e69138;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 2px 8px 2px 8px;
+    border-radius: 8px;
+    margin-left: 4rem;
+    margin-right: 3.4rem;
+}
+
+.navbar .menu-links .action_btn:hover{
+    color: #e69138;
+}
+
+
+#close-menu-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+#hamburger-btn {
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* tentang section styling */
+.home{
+    display: flex;
+    height: 100vh;
+    color: black;
+    min-height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'poppins', sans-serif;
+    background-color: white;
+}
+
+.home .max-width .row{
+    margin-right: 0;
+}
+
+.home-content{
+    text-align: justify;
+    max-width: 81%;
+    margin-top: 1rem;
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    right: 5%;
+    line-height: 2.5rem;
+}
+
+.home .home-content img{
+    float: left;
+    width: 13%;
+    height: auto;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.home .home-content .text{
+    margin-top: 5.2rem;
+    line-height: 1.9rem;
+}
+
+.home .home-content .text-1{
+    font-size: 48px;
+    font-weight: bold;
+}
+.home .home-content .text-2{
+    font-size: 32px;
+    position: relative;
+    font-weight: 600;
+}
+
+.home .home-content .text-3{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.home .home-content p{
+    margin-top: 3rem;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: justify;
+    line-height: 1.7rem;
+}
+
+
+/* Kilas Balik Section Stying */
+.main {
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  background-color: #e69138;
+  background-size: cover;
+}
+
+.judul{
+  line-height: 4rem;
+  margin-top: 2rem;
+}
+
+.judul .text1{
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.judul .text1 hr{
+  position: absolute;
+  left: 38%;
+  bottom: 85%;
+  width: 300px;
+  height: 3px;
+  color: white;
+  background-color: white;
+  border: none;
+  z-index: 100;
+}
+
+
+.judul .text2{
+  color: white;
+  font-size: 1rem;
+  font-weight:500;
+}
+
+.wrapper,
+.slide {
+  position: relative;
+  width: 90%;
+  height: 99%;
+  margin-top: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.slide {
+  overflow: hidden;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  height: 70%;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 10;
+  border-radius: 0.5rem;
+}
+
+.slide .image {
+  height: 70%;
+  width: 70%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.slide .image-data {
+  position: absolute;
+  top: 34.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+
+.image-data span.text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* swiper button css */
+.nav-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.swiper-button-next {
+  right: 230px;
+  top: 24.5rem;
+}
+
+.swiper-button-prev {
+  left: 230px;
+  top: 24.5rem;
+}
+
+.nav-btn::before,
+.nav-btn::after {
+  font-size: 25px;
+  color: #fff;
+}
+
+.swiper-pagination-bullet {
+  opacity: 1;
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  visibility: hidden;
+}
+
+.swiper-pagination-bullet-active {
+  border: 2px solid #fff;
+  background-color: #c87e4f;
+}
+
+
+
+/* contact section styling */
+.contact .max-width{
+  max-width: 1200px;
+  padding: 0 0px;
+  margin: auto;
+}
+
+.contact{
+  background-color: #18184d;
+  height: 573px;
+  color: white;
+  padding-top: 3.4rem;
+  padding-bottom: 3rem;
+}
+
+.contact .contact-content .column{
+  width: calc(44.5% - 50px);
+}
+
+.contact .contact-content .left img{
+  float: left;
+  width: 130px;
+  height: 162px;
+  margin-right: 1rem;   
+}
+
+.contact .contact-content .text{
+  padding-top: 3.3rem;
+  line-height: 1.8rem;
+}
+
+.contact .contact-content .text-1{
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.contact .contact-content .text-2{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.contact .contact-content .text-3{
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.contact .contact-content p{
+  margin-top: 4rem;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: justify;
+  line-height: 2rem;
+}
+
+.contact .contact-content .right{
+  position: absolute;
+  float: right;
+  left: 50%;
+  top: 208.4%;
+}
+
+.contact .contact-content .right .text{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact .contact-content .right .alamat{
+  position: absolute;
+  font-size: 1rem;
+  margin-left: 14.5rem;
+  margin-top: 1rem;
+}
+
+.contact .contact-content .right .alamat .text1{
+  font-weight: 700;
+}
+
+.contact .contact-content .right .row{
+  display: flex;
+  height: 65px;
+  align-items: center;
+}
+
+.contact .contact-content .right .container{
+  background-color: rgba(0, 0, 0, 0.100);
+  padding: 0 auto;
+  border-radius: 5px;
+  height: 11.2rem;
+}
+
+.contact .contact-content .right iframe{
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.contact .contact-content .right .text-sosmed{
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+/* footer section styling */
+footer{
+  background: #161645;
+  padding: 5px 19px;
+  color: #fff;
+  position: absolute;
+  top: 285%;
+}
+
+footer .info-footer .maskot{
+  margin-left: 25rem;
+  width: 3.5%;
+}
+
+footer .info-footer .logo{
+  width: 2.2%;
+  margin-bottom: 3px;
+}
+
+footer .row .text{
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  font-size: 1.2rem;
+}
+
+footer .row .text1{
+  position: absolute;
+  top: 30%;
+  left: 52.9%;
+}
+
+footer .row .text2{
+  position: absolute;
+  top: 30%;
+  left: 54%;
+  font-size: 1.2rem;
+}
+  
+  
+  
+
+
+/* responsive media query start */
+
+@media (max-width: 834px){
+  header {
+      padding: 1px;
+  }
+    
+    header.show-mobile-menu::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(5px);
+  }
+    
+  .navbar img{
+      width: 8%;
+  }
+    
+  .navbar .logo {
+      margin-left: 4.7rem;
+      font-size: 16px;
+      padding-top: 3px;
+  }
+    
+  #hamburger-btn{
+      margin-right: 1.5rem;
+  }
+
+  #hamburger-btn, #close-menu-btn {
+      display: block;
+  }
+    
+  .navbar .menu-links {
+      font-weight: 600;
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      flex-direction: column;
+      padding: 70px 40px 0;
+      transition: left 0.2s ease;
+      color: black;
+  }
+    
+  .navbar .menu-links .active{
+      color: black;
+  }
+    
+  .navbar .menu-links li a{
+      color: black;
+      transition: text-shadow .1s;
+  }
+    
+  .navbar .menu-links li a:hover{
+      color: black;
+      text-shadow: 0 0 .1px black, 0 0 .1px black, 0 0 .1px black;
+  }
+    
+  .navbar .menu-links .action_btn{
+      position: absolute;
+      color: white;
+      background-color: #e69138;
+      margin: 0 auto;
+      padding: 5px 4rem 5px 4rem;
+  }
+    
+  .navbar .menu-links .action_btn:hover{
+      background-color: #e69138;
+      color: white;
+  }
+    
+    
+  header.show-mobile-menu .navbar .menu-links {
+      left: 0;
+  }
+    
+  header.show-mobile-menu .navbar .menu-links {
+      left: 0;
+  }
+
+
+  .home{
+      height: 60vh;
+  }
+
+  .home .home-content{
+      max-width: 84%;
+      max-height: 100vh;
+      margin-top: 7rem;
+  }
+
+  .home .home-content img{
+      position: absolute;
+      bottom: 86%;
+      margin: 0 auto;
+      width: 24%;
+  }
+
+  .home .home-content .text{
+    position: absolute;
+    bottom: 87%;
+    margin-left: 7rem;
+    margin-top: 0rem;
+    line-height: 1.3rem;
+  }
+
+  .home .home-content .text-1{
+      font-size: 24px;
+  }
+
+  .home .home-content .text-2{
+      font-size: 20px;
+  }
+  .home .home-content .text-3{
+      font-size: 14px;
+  }
+
+  .home .home-content p{
+      margin: 4rem 0rem 0rem 0rem;
+      line-height: 1rem;
+      font-size: 12px;
+  }
+  
+  .scroll-up-btn{
+      right: 15px;
+      bottom: 15px;
+      height: 38px;
+      width: 35px;
+      font-size: 23px;
+      line-height: 38px;
+  }
+
+  /* Kilas Balik */
+  .main{
+      height: 50vh;
+  }
+
+  .main .judul{
+      margin-top: 1rem;
+  }
+
+  .main .judul .text1{
+      font-size: 14px;
+  }
+
+  .judul .text1 hr{
+      left: 37%;
+      bottom: 80%;
+      width: 100px;
+      height: 3px;
+  }
+
+  .judul .text2{
+      font-size: 11px;
+      line-height: 14px;
+      max-width: 92%;
+      margin-left: 15px;
+      margin-bottom: 1rem;
+  }
+
+  .swiper-button-next {
+    right: 450px;
+    top: 0rem;
+  }
+  
+  .swiper-button-prev {
+    left: 45%;
+    top: 14.4rem;
+  }
+
+
+
+  /* kontak */
+  .contact .contact-content .column{
+      width: calc(95% - 0%);
+  }
+
+  .contact .max-width{
+      margin-left: 1.5rem;
+  }
+
+  .contact{
+      height: 81.7vh;
+  }
+
+  .contact .contact-content .left{
+      padding-top: 0rem;
+  }
+
+  .contact .contact-content .left img{
+      width: 16%;
+      height: auto;
+      margin: 0px 1rem 0rem 0rem;  
+  }
+
+  .contact .contact-content .text{
+    padding-top: 1.7rem;
+    line-height: 1.2rem;
+}
+
+  .contact .contact-content .text-1{
+      font-size: 20px;
+      font-weight: bold;
+  }
+
+  .contact .contact-content .text-2{
+      font-size: 16px;
+      font-weight: 600;
+  }
+
+  .contact .contact-content .text-3{
+      font-size: 12px;
+      font-weight: 400;
+  }
+
+  .contact .contact-content p{
+      margin: 1.5rem auto;
+      font-size: 12px;
+      line-height: 1.2rem;
+  }
+
+  .contact .contact-content .right{
+      position: absolute;
+      top: 175%;
+      left: 5.5%;
+  }
+
+  .contact .contact-content .right .container{
+      width: 94%;
+      height: 30%;
+  }
+
+  .contact .contact-content .right .text{
+      font-size: 16px;
+  }
+
+  .contact .contact-content .right .alamat{
+      width: 55%;
+      font-size: 12px;
+      text-align: justify;
+      margin-left: 10rem;
+  }
+
+  .contact .contact-content .right .info-sosmed{
+      margin-bottom: 2rem;
+  }
+
+  .contact .contact-content .right .info-sosmed .email{
+      width: 19px;
+      height: 20.5px;
+  }
+
+  .contact .contact-content .right .info-sosmed .ig{
+      width: 15px;
+      height: 15px;
+  }
+
+  .contact .contact-content .right iframe{
+      width: 130px;
+      height: 90px;
+  }
+
+  /* footer */
+  body{
+    background-color: #161645;
+  }
+
+  footer{
+      height: 5vh;
+      top: 215%;
+  }
+
+  footer .info-footer{
+      background-color: #161645;
+  }
+
+  footer .info-footer .maskot{
+      width: 7%;
+      margin-left: 2.8rem;
+  } 
+
+  footer .info-footer .logo{
+      width: 4%;
+  }
+
+  footer .row .text{
+      top: 43%;
+      left: 27%;
+      font-size: 12px;
+  }
+
+  footer .row .text1{
+      top: 43%;
+      font-size: 12px;
+  }
+
+  footer .row .text2{
+      top: 43%;
+      left: 55%;
+      font-size: 12px;
+  }
+
+
+  .scroll-up-btn{
+      right: 15px;
+      bottom: 15px;
+      height: 38px;
+      width: 35px;
+      font-size: 23px;
+      line-height: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-btn {
+    visibility: visible;
+    height: 20px;
+    width: 20px;
+  }
+
+  .nav-btn::before,
+  .nav-btn::after {
+    font-size: 10px;
+  }
+
+  .swiper-button-next {
+    right: 45px;
+    top: 14.5rem;
+  }
+  
+  .swiper-button-prev {
+    left: 45px;
+    top: 14.4rem;
+  }
+
+  .swiper-pagination-bullet {
+    visibility: hidden;
+    height: 6px;
+    width: 6px;
+  }
+
+  .slide::before {
+    height: 50%;
+    width: 80%;
+  }
+  
+  .slide .image {
+    height: 50%;
+    width: 80%;
+  }
+
+  .slide .image-data {
+    top: 24.2%;
+  }
+
+  .image-data span.text {
+    font-size: 11px;
+  }
+
+}
+
+@media (max-width: 476px){
+
+  .navbar .logo{
+    font-size: 13px;
+    margin-left: 3.8rem;
+    padding-top: 0px;
+  }   
+
+  /* tentang */
+  .home .home-content{
+    margin-top: 5rem;
+  }
+  .home .home-content .text{
+    line-height: 1rem;
+    margin-left: 5.5rem;
+    padding-bottom: 0.1rem;
+  }
+
+  .home .home-content .text-1{
+    font-size: 18px;
+  }
+
+  .home .home-content .text-2{
+    font-size: 14px;
+  }
+
+  .home .home-content .text-3{
+    font-size: 11px;
+  }
+
+  .home .home-content p{
+    margin-top: 4rem;
+  }
+
+  /* kilas balik */
+  .judul .text1 hr{
+    bottom: 82%;
+  }
+  
+  /* kontak */
+  .contact{
+    height: 75vh;
+  }
+
+  .contact .contact-content .text{
+    padding-top: 1rem;
+  }
+
+  .contact .contact-content .text-1{
+    font-size: 18px;
+  }
+
+.contact .contact-content .text-2{
+    font-size: 14px;
+  }
+
+.contact .contact-content .text-3{
+    font-size: 11px;
+  }
+
+  .contact .contact-content .right{
+    top: 157%;
+  }
+
+  .contact .contact-content .right .alamat{
+    width: 46%;
+    font-size: 10px;
+  }
+
+  /* footer */
+  footer{
+    top: 187%;
+  }
+
+  footer .info-footer .maskot{
+    margin-left: 0.7rem;
+  }
+
+  footer .row .text,
+  footer .row .text1,
+  footer .row .text2{
+    top: 30%;
+  }
+
+  footer .row .text{
+    left: 21%;
+  }
+}
+
+
+
+    
