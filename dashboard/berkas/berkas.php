@@ -16,13 +16,13 @@ if(isset($_SESSION['name'])) {
     exit(); // Stop further execution
 }
 
-$sql = "SELECT *FROM berkas_a1 WHERE kwarran=$_SESSION[kwarran]";
+$sql = "SELECT *FROM berkas_a1 WHERE kwarran='$kwarran'";
 $a1 = $conn->query($sql);
 
-$sql_a2 = "SELECT *FROM berkas_a2 WHERE kwarran=$_SESSION[kwarran]";
+$sql_a2 = "SELECT *FROM berkas_a2 WHERE kwarran='$kwarran'";
 $a2 = $conn->query($sql_a2);
 
-$sql_a3 = "SELECT *FROM berkas_a3 WHERE kwarran=$_SESSION[kwarran]";
+$sql_a3 = "SELECT *FROM berkas_a3 WHERE kwarran='$kwarran'";
 $a3 = $conn->query($sql_a3);
 
 ?>  
