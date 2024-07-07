@@ -1,10 +1,10 @@
 <?php
+// Start session
+session_start();
+
 // koneksi
 include '../koneksi/config.php';
 include '../includes/ucapan.php';
-
-// Start session
-session_start();
 
 // Check if the user is logged in
 if(isset($_SESSION['name'])) {
