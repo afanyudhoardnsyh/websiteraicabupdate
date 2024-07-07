@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
+    $nama = $_POST['nama'];
     $ttl = $_POST['ttl'];
     $kategori = $_POST['kategori'];
     $kwarran = $_POST['kwarran'];
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 include '../koneksi/config.php';
 
                 // Insert the file information into the database
-                $sql = "INSERT INTO peserta (name, ttl, kategori, kwarran, jenis_kelamin, nohp, ukuran_kaos, golongan, bpjs) VALUES ('$name', '$ttl', '$kategori', '$kwarran', '$jk', '$nohp', '$ukkaos', '$golongan', '$bpjs')";
+                $sql = "INSERT INTO peserta (nama, ttl, kategori, kwarran, jenis_kelamin, nohp, ukuran_kaos, golongan, bpjs) VALUES ('$nama', '$ttl', '$kategori', '$kwarran', '$jk', '$nohp', '$ukkaos', '$golongan', '$bpjs')";
 
                 if ($conn->query($sql) === TRUE) {
                     // mengalihkan halaman kembali ke buktibayar.php
