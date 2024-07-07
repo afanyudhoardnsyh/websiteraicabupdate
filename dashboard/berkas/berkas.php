@@ -13,7 +13,7 @@ if(isset($_SESSION['name'])) {
 }
 
 // Assuming $kwarran needs to be fetched or defined somewhere before these queries
-$kwarran = ''; // Replace with appropriate logic to fetch or define $kwarran
+$kwarran = $_SESSION['kwarran']; // Replace with appropriate logic to fetch or define $kwarran
 
 // Include database connection and other necessary includes
 include '../koneksi/config.php';
