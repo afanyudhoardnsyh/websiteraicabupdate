@@ -199,7 +199,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $d['name']; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
@@ -215,7 +215,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $d['name']; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
@@ -250,7 +250,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $d['name']; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
@@ -265,7 +265,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $d['name']; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
@@ -298,7 +298,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $d['name']; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
