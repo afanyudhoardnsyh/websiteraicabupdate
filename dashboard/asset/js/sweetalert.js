@@ -23,7 +23,7 @@ document.getElementById("deleteA1").addEventListener("click", (e) => {
         confirmButtonText: "Ya, hapus!"
     }).then((result) => {
     if (result.isConfirmed) {
-        document.location.href="/dashboard/berkas/delete/deleteA1.php"
+        document.location.href="dashboard/berkas/delete/deleteA1.php"
     }
     });
 })
@@ -38,7 +38,7 @@ document.getElementById("deleteA2").addEventListener("click", (e) => {
         confirmButtonText: "Ya, hapus!"
     }).then((result) => {
     if (result.isConfirmed) {
-        document.location.href="/dashboard/berkas/delete/deleteA2.php"
+        document.location.href="dashboard/berkas/delete/deleteA2.php"
     }
     });
 })
@@ -53,7 +53,7 @@ document.getElementById("deleteA3").addEventListener("click", (e) => {
         confirmButtonText: "Ya, hapus!"
     }).then((result) => {
     if (result.isConfirmed) {
-        document.location.href="/dashboard/berkas/delete/deleteA3.php"
+        document.location.href="dashboard/berkas/delete/deleteA3.php"
     }
     });
 })
