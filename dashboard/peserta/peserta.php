@@ -322,6 +322,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         <?php } ?>
                     <?php } ?>
                 </table>
+		<a href="#" class="show">Show All</a>
             </div>
         <!-- End of Table -->
 
