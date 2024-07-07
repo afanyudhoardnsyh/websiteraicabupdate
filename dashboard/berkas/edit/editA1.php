@@ -84,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION['success_edit'])) {
         echo '<div class="alert alert-success">' . $_SESSION['success_edit'] . '</div>';
         unset($_SESSION['success_edit']);
+        header('../berkas.php');
     }
     if (isset($_SESSION['error_edit'])) {
         echo '<div class="alert alert-danger">' . $_SESSION['error_edit'] . '</div>';
