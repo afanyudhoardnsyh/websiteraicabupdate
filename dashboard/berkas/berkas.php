@@ -205,7 +205,7 @@ $a3 = $conn->query($sql);
                                         while ($row = $a1->fetch_assoc()){
                                         $file_path = "./uploadBerkas/A1/" . $row['filename'];
                                     ?>
-                                        <td><a href="<?php echo $file_path; ?>" class="btnLihat"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><a href="<?php echo $file_path; ?>" class="btnLihat" target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
                                     <?php
                                     }
                                     } else {
@@ -242,7 +242,7 @@ $a3 = $conn->query($sql);
                                         while ($row = $a2->fetch_assoc()) {
                                         $file_path = "./uploadBerkas/A2/" . $row['filename'];
                                     ?>
-                                        <td><a href="<?php echo $file_path; ?>" class="btnLihat"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><a href="<?php echo $file_path; ?>" class="btnLihat" target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
                                     <?php
                                     }
                                     } else {
@@ -279,7 +279,7 @@ $a3 = $conn->query($sql);
                                         while ($row = $a3->fetch_assoc()) {
                                         $file_path = "./uploadBerkas/A3/" . $row['filename'];
                                     ?>
-                                        <td><a href="<?php echo $file_path; ?>" class="btnLihat"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><a href="<?php echo $file_path; ?>" class="btnLihat" target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
                                     <?php
                                     }
                                     } else {
