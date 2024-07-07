@@ -1,15 +1,14 @@
 <?php
 session_start();
-var_dump('kwarran');
 
 // Check if the user is logged in
-if(isset($_SESSION['name']) {
+if (isset($_SESSION['name'])) {
     // Assign the name to the $name variable
     $name = $_SESSION['name'];
     $kwarran = $_SESSION['kwarran'];
 } else {
     // If not logged in, redirect to login page or handle accordingly
-    header("masjhiuh");
+    header("Location: ../login.php"); // Redirect to a proper login page
     exit(); // Stop further execution
 }
 
@@ -23,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if the file is allowed (you can modify this to allow specific file types)
         $allowed_types = array("jpg", "jpeg", "png", "gif", "pdf");
         if (!in_array($file_type, $allowed_types)) {
-            $_SESSION['error_filetype'] = "Format file tidak sesuai, gunakan format JPG, JPEG, PNG atau PDF";
-            header("location: ../berkas.php");
+            $_SESSION['error_filetype'] = "Format file tidak sesuai, gunakan format JPG, JPEG, PNG, atau PDF";
+            header("Location: ../berkas.php");
         } else {
             // Move the uploaded file to the specified directory
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
@@ -41,27 +40,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 // Insert the file information into the database
-                $sql = "INSERT INTO berkas_a1 (filename, filesize, filetype, kwarran) VALUES ('$filename', $filesize, '$filetype', '$kwarran'";
+                $sql = "INSERT INTO berkas_a1 (filename, filesize, filetype, kwarran) VALUES ('$filename', $filesize, '$filetype', '$kwarran')";
 
                 if ($conn->query($sql) === TRUE) {
                     // mengalihkan halaman kembali ke berkas.php
                     $_SESSION['success'] = "Berkas A1 berhasil diupload";
-                    header("location: ../berkas.php");
+                    header("Location: ../berkas.php");
                 } else {
-                    $_SESSION['error'] = "Maaf, terdapat masalah saat mengupload file";
-                    header("location: ../berkas.php");
+                    $_SESSION['error'] = "Maaf, terdapat masalah saat menyimpan informasi file ke database: " . $conn->error;
+                    header("Location: ../berkas.php");
                 }
 
                 $conn->close();
             } else {
                 $_SESSION['error'] = "Maaf, terdapat masalah saat mengupload file";
-                header("location: ../berkas.php");
+                header("Location: ../berkas.php");
             }
         }
     } else {
         $_SESSION['error_empty'] = "Tidak ada file yang diupload";
-        header("location: ../berkas.php");
+        header("Location: ../berkas.php");
     }
 }
 ?>
-
