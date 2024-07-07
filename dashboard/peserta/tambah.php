@@ -33,7 +33,7 @@ $datakwarran = $result;
                     <div class="fields">
                         <div class="input-field">
                             <label>Nama Lengkap</label>
-                            <input type="text" class="input" name="name" placeholder="Masukkan Nama Lengkap" required>
+                            <input type="text" class="input" name="nama" placeholder="Masukkan Nama Lengkap" required>
                         </div>
 
                         <div class="input-field">
