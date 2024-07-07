@@ -276,8 +276,8 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
             </div>
         <!-- End of Table -->
 
-        <!-- Table Putra-->
-            <div class="recent-orders">
+        <!-- Table Putri-->
+        <div class="recent-orders">
                 <h2>Peserta Putri</h2>
                 <table>
                     <thead>
@@ -290,6 +290,22 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                             <th></th>
                         </tr>
                     </thead>
+                    <?php if ($_SESSION['kwarran']=="all") { ?>
+                        <?php 
+                            include '../koneksi/config.php';
+                            $no = 1;
+                            $data = mysqli_query($conn, "SELECT * FROM peserta WHERE jenis_kelamin = 'Perempuan'");
+                            while($d = mysqli_fetch_array($data)){
+                        ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
+                            <td><?php echo $d['jenis_kelamin']; ?></td>
+                            <td><?php echo $d['kwarran']; ?></td>
+                            <td><?php echo $d['golongan']; ?></td>
+                        </tr>
+                        <?php } ?>
+                    <?php }else{ ?>
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
@@ -303,11 +319,9 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
                         </tr>
-                        <?php 
-                        }
-                        ?>
+                        <?php } ?>
+                    <?php } ?>
                 </table>
-                <a href="#" class="show">Show All</a>
             </div>
         <!-- End of Table -->
 
