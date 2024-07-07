@@ -29,7 +29,7 @@
         </div> 
 
         <!-- Right Box -->
-        <form action="./welcome.php" method="post" class="col-md-6 right-box">
+        <form action="./selamat_datang.php" method="post" class="col-md-6 right-box">
             <div class="row align-items-center">
                 <div class="header-text mb-4">
                     <h2>Selamat datang</h2>

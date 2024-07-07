@@ -15,8 +15,11 @@ if(isset($_SESSION['name'])) {
     exit(); // Stop further execution
 }
 
-$data_peserta = mysqli_query($conn ,"SELECT * FROM peserta");
+$data_peserta = mysqli_query($conn ,"SELECT * FROM peserta WHERE kwarran=$kwarran");
 $jumlah_peserta = mysqli_num_rows($data_peserta);
+
+$data_peserta_level = mysqli_query($conn ,"SELECT * FROM peserta");
+$jumlah_peserta_level = mysqli_num_rows($data_peserta);
 ?>
 
 <!DOCTYPE html>
@@ -42,63 +45,117 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
 
     <div class="container">
         <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
-                    <h2>Raicab III<span class="danger"></span></h2>
+        <?php if ($_SESSION['kwarran'] == "all") { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                    </span>
-                </div>
-            </div>
-            
-            <div class="sidebar">
-                <a href="../dashboard.php">
-                    <span class="material-icons-sharp">
-                        dashboard
-                    </span>
-                    <h3>Dashboard</h3>
-                </a>
                 
-                <a href="../berkas/berkas.php">
-                <span class="material-symbols-outlined">
-                        folder
-                </span>
-                    <h3>Berkas Kontingen</h3>
-                </a>
-
-                <a href="#" class="active";>
-                <span class="material-symbols-outlined">
-                        assignment_ind
-                </span>
-                    <h3>Data Peserta</h3>
-                </a>
-
-                <a href="../kontingen/unsurkontingen.php">
-                <span class="material-symbols-outlined">
-                        switch_account
-                </span>
-                    <h3>Data Unsur Kontingen</h3>
-                </a>
-
-                <a href="../buktipembayaran/buktibayar.php">
-                <span class="material-symbols-outlined">
-                        payments
-                </span> 
-                    <h3>Bukti Pembayaran</h3>
-                </a>
-
-                <a href="#" id="out">
-                    <span class="material-icons-sharp">
-                        logout
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
+
+                    <a href="#" class="active";>
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+                    <a href="../kontingen/unsurkontingen.php">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
+                    <a href="../buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } else { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
+                    </span>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
+
+                    <a href="#" class="active";>
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+                    <a href="../buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } ?>
+
         <!-- End of Sidebar Section -->
 
         <!-- Main Content -->
@@ -123,10 +180,12 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <th></th>
                         </tr>
                     </thead>
+                    <!-- <?php var_dump($_SESSION['kwarran'])?> -->
+                    <?php if ($_SESSION['kwarran'] == "all") { ?>
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
-	                        $data = mysqli_query($conn, "select * from peserta");
+                            $data = mysqli_query($conn, "SELECT * FROM peserta");
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>
@@ -137,9 +196,24 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <td><?php echo $d['golongan']; ?></td>
                             <td><?php echo $d['ukuran_kaos']; ?></td>
                         </tr>
+                        <?php } ?>
+                    <?php }else{ ?>
                         <?php 
-                        }
+                            include '../koneksi/config.php';
+                            $no = 1;
+	                        $data = mysqli_query($conn, "SELECT * FROM peserta WHERE kwarran = '$_SESSION[kwarran]'");
+                            while($d = mysqli_fetch_array($data)){
                         ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
+                            <td><?php echo $d['jenis_kelamin']; ?></td>
+                            <td><?php echo $d['kwarran']; ?></td>
+                            <td><?php echo $d['golongan']; ?></td>
+                            <td><?php echo $d['ukuran_kaos']; ?></td>
+                        </tr>
+                        <?php } ?>
+                    <?php } ?>
                 </table>
             </div>
         <!-- End of Table -->
@@ -158,10 +232,11 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <th></th>
                         </tr>
                     </thead>
+                    <?php if ($_SESSION['kwarran']=="all") { ?>
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
-	                        $data = mysqli_query($conn, "select * from peserta where jenis_kelamin = 'Laki-Laki'");
+                            $data = mysqli_query($conn, "SELECT * FROM peserta WHERE jenis_kelamin = 'Laki-Laki'");
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>
@@ -171,9 +246,23 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
                         </tr>
+                        <?php } ?>
+                    <?php }else{ ?>
                         <?php 
-                        }
+                            include '../koneksi/config.php';
+                            $no = 1;
+	                        $data = mysqli_query($conn, "SELECT * FROM peserta WHERE jenis_kelamin = 'Laki-Laki' AND kwarran = '$_SESSION[kwarran]'");
+                            while($d = mysqli_fetch_array($data)){
                         ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
+                            <td><?php echo $d['jenis_kelamin']; ?></td>
+                            <td><?php echo $d['kwarran']; ?></td>
+                            <td><?php echo $d['golongan']; ?></td>
+                        </tr>
+                        <?php } ?>
+                    <?php } ?>
                 </table>
             </div>
         <!-- End of Table -->
@@ -195,7 +284,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
-	                        $data = mysqli_query($conn, "select * from peserta where jenis_kelamin = 'Perempuan'");
+	                        $data = mysqli_query($conn, "SELECT * FROM peserta WHERE jenis_kelamin = 'Perempuan' AND kwarran = '$_SESSION[kwarran]'");
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>

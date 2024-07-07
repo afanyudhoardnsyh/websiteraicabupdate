@@ -123,10 +123,12 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <th></th>
                         </tr>
                     </thead>
+                    <!-- <?php var_dump($_SESSION['kwarran']) ?> -->
+                    <?php if ($_SESSION['kwarran']=="all") { ?>
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
-	                        $data = mysqli_query($conn, "select * from unsur_kontingen");
+                            $data = mysqli_query($conn, "SELECT * FROM unsur_kontingen");
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>
@@ -137,9 +139,24 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             <td><?php echo $d['golongan']; ?></td>
                             <td><?php echo $d['ukuran_kaos']; ?></td>
                         </tr>
+                        <?php } ?>
+                    <?php }else{ ?>
                         <?php 
-                        }
+                            include '../koneksi/config.php';
+                            $no = 1;
+	                        $data = mysqli_query($conn, "SELECT * FROM unsur_kontingen WHERE kwarran='$_SESSION[kwarran]'");
+                            while($d = mysqli_fetch_array($data)){
                         ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $d['nama']; ?></td>
+                            <td><?php echo $d['jenis_kelamin']; ?></td>
+                            <td><?php echo $d['kwarran']; ?></td>
+                            <td><?php echo $d['golongan']; ?></td>
+                            <td><?php echo $d['ukuran_kaos']; ?></td>
+                        </tr>
+                        <?php } ?>
+                    <?php } ?>
                 </table>
                 <a href="#" class="show">Show All</a>
             </div>

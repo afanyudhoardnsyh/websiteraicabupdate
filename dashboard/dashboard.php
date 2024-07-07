@@ -1,26 +1,41 @@
 <?php
 // Start session
 session_start();
+error_reporting(1);
 
+// Menghubungkan PHP dengan koneksi database
 include 'koneksi/config.php';
 include './includes/ucapan.php';
 
 // Check if the user is logged in
-if(isset($_SESSION['name'])) {
-    // Assign the name to the $name variable
+if (isset($_SESSION['name']) && isset($_SESSION['user_level']) && isset($_SESSION['kwarran'])) {
+    // Assign the name, user_level, and kwarran to the variables
     $name = $_SESSION['name'];
+    $user_level = $_SESSION['user_level'];
+    $kwarran = $_SESSION['kwarran'];
 } else {
-    // If not logged in, redirect to login page or handle accordingly
-    header("masjhiuh");
-    exit(); // Stop further execution
+    // If not logged in, redirect to login page
+    header("Location: ../login/login.php");
+    exit();
 }
 
-$data_peserta = mysqli_query($conn ,"SELECT * FROM peserta");
-$jumlah_peserta = mysqli_num_rows($data_peserta);
+// Fetch data using prepared statements
+$stmt = $conn->prepare("SELECT * FROM peserta WHERE kwarran = ?");
+$stmt->bind_param("s", $kwarran);
+$stmt->execute();
+$data_peserta = $stmt->get_result();
+$jumlah_peserta = $data_peserta->num_rows;
+$stmt->close();
 
-$sql = "SELECT *FROM pembayaran";
+$level1_peserta = mysqli_query($conn, "SELECT * FROM peserta");
+$total_peserta = mysqli_num_rows($level1_peserta);
+
+$sql = "SELECT * FROM pembayaran";
 $result = $conn->query($sql);
-
+if (!$result) {
+    echo "Error executing query: " . $conn->error;
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +47,12 @@ $result = $conn->query($sql);
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="shortcut icon" href="./asset/image/favicon.svg" type="image/x-icon">
-    <!-- google #sipalingraicabfont -->
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <!-- sweetalert -->
+    <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- css -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./asset/css/styledashboard.css">
     <link rel="stylesheet" href="./asset/css/charts.css">
     <title>Raicab | Dashboard</title>
@@ -45,63 +60,121 @@ $result = $conn->query($sql);
 <body>
     <div class="container">
         <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="../image/OFC_Logo_Raicab_Polos.webp">
-                    <h2>Raicab III<span class="danger"></span></h2>
+        <?php if ($_SESSION['kwarran'] == "all") { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                    </span>
-                </div>
-            </div>
 
-            <div class="sidebar">
-                <a href="#" class="active";>
-                    <span class="material-icons-sharp">
-                        dashboard
+                <div class="sidebar">
+                    <a href="#" class="active">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../dashboard/berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                    <h3>Dashboard</h3>
-                </a>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
+
+                    <a href="../dashboard/peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+                    <a href="../dashboard/kontingen/unsurkontingen.php">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
+                    <a href="../dashboard/buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="../logout/logout.php" id="out">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+                    
                 
-                <a href="../dashboard/berkas/berkas.php">
-                <span class="material-symbols-outlined">
-                        folder
-                </span>
-                    <h3>Berkas Kontingen</h3>
-                </a>
+            </aside>
+        <?php }else{ ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
+                </div>
 
-                <a href="../dashboard/peserta/peserta.php">
-                <span class="material-symbols-outlined">
-                        assignment_ind
-                </span>
-                    <h3>Data Peserta</h3>
-                </a>
+                <div class="sidebar">
+                    <a href="#" class="active">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../dashboard/berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
+                    </span>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
 
-                <a href="../dashboard/kontingen/unsurkontingen.php">
-                <span class="material-symbols-outlined">
-                        switch_account
-                </span>
-                    <h3>Data Unsur Kontingen</h3>
-                </a>
+                    <a href="../dashboard/peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
 
-                <a href="../dashboard/buktipembayaran/buktibayar.php">
-                <span class="material-symbols-outlined">
-                        payments
-                </span> 
-                    <h3>Bukti Pembayaran</h3>
-                </a>
+                    <a href="../dashboard/buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
 
-                <a href="#" id="out">
-                <span class="material-icons-sharp">
-                    logout
-                </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
+                    <a href="../logout/logout.php" id="out">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+                    
+                
+            </aside>
+        <?php } ?>
+        
         <!-- End of Sidebar Section -->
 
         <!-- Main Content -->
@@ -113,7 +186,11 @@ $result = $conn->query($sql);
                     <div class="status">
                         <div class="info">
                             <h3>Jumlah Peserta</h3>
-                            <h1><?php echo $jumlah_peserta; ?> Orang</h1>
+                            <?php if ($_SESSION['kwarran'] == "all") { ?>
+                                <h1><?php echo $total_peserta ?> Orang</h1>
+                            <?php }else{ ?>
+                                <h1><?php echo $jumlah_peserta; ?> Orang</h1>
+                            <?php } ?>
                         </div>
                         <div class="progresss">
                             <i class="fa-solid fa-circle-user"></i>
@@ -132,7 +209,7 @@ $result = $conn->query($sql);
                     </div>
                 </div>
             </div>
-            <!-- End of Analyses -->
+            <!-- End of Dashboard -->
 
             <?php include 'chart.php'; ?>
 
@@ -161,7 +238,6 @@ $result = $conn->query($sql);
                                     <td><?php echo $row['jumlah']; ?></td>
                                     <td>Sukses</td>
                                     <td>Aktif</td>
-                                    
                                 </tr>
                                 <?php
                             }
@@ -178,7 +254,7 @@ $result = $conn->query($sql);
                 <a href="#" class="show">Show All</a>
             </div>
             <!-- End of Recent Orders -->
-            
+
         </main>
         <!-- End of Main Content -->
 
@@ -200,7 +276,6 @@ $result = $conn->query($sql);
                         <i class="fa-solid fa-user fa-2xl"></i>
                     </div>
                 </div>
-
             </div>
             <!-- End of Nav -->
 
@@ -264,10 +339,6 @@ $result = $conn->query($sql);
         </div>
     </div>
     <script src="./asset/js/index.js"></script>
-    <script src="./asset/js/charts.js"></script>
-    <script src="../asset/sweetalert.js"></script>
-    <script src="./asset/js/audio.js"></script>
-
+    <script src="./asset/js/ch.js"></script>
 </body>
-
 </html>

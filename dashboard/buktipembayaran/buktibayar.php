@@ -16,21 +16,38 @@ if(isset($_SESSION['name'])) {
 }
 
 //Fetch the uploaded files from the database
-$sql = "SELECT *FROM pembayaran";
+$sql_bayar = "SELECT *FROM pembayaran";
+$bayar_level = $conn->query($sql);
+
+$sql = "SELECT *FROM pembayaran WHERE kwarran = '$_SESSION[kwarran]'";
 $bayar = $conn->query($sql);
 
 // Fetching total nominal properly
-$data_nominal_query = mysqli_query($conn, "SELECT SUM(nominal) AS total_nominal FROM pembayaran");
+$data_nominal_query = mysqli_query($conn, "SELECT SUM(nominal) AS total_nominal FROM pembayaran WHERE
+    kwarran = '$_SESSION[kwarran]'");
 $data_nominal = [];
 while ($row = mysqli_fetch_assoc($data_nominal_query)) {
     $data_nominal[] = $row;
 }
 
+$data_level_query = mysqli_query($conn, "SELECT SUM(nominal) AS total_nominal FROM pembayaran");
+$level_nominal = [];
+while ($row = mysqli_fetch_assoc($data_level_query)) {
+    $level_nominal[] = $row;
+}
+
 // Fetching total terdaftar properly
-$data_terdaftar_query = mysqli_query($conn, "SELECT SUM(jumlah) AS total_terdaftar FROM pembayaran");
+$data_terdaftar_query = mysqli_query($conn, "SELECT SUM(jumlah) AS total_terdaftar FROM pembayaran WHERE 
+    kwarran = '$_SESSION[kwarran]'");
 $data_terdaftar = [];
 while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
     $data_terdaftar[] = $row;
+}
+
+$data_terdaftar_lvl = mysqli_query($conn, "SELECT SUM(jumlah) AS total_terdaftar FROM pembayaran");
+$data_terdaftar_level = [];
+while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
+    $data_terdaftar_level[] = $row;
 }
 
 ?>
@@ -58,63 +75,116 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
 
     <div class="container">
         <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
-                    <h2>Raicab III<span class="danger"></span></h2>
+        <?php if ($_SESSION['kwarran'] == "all") { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
+
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
+
+                    <a href="../peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+                    <a href="../kontingen/unsurkontingen.php">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
+                    <a href="#" class="active";>
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
                 </div>
-            </div>
+            </aside>
+        <?php } else { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
+                </div>
 
-            <div class="sidebar">
-                <a href="../dashboard.php">
-                    <span class="material-icons-sharp">
-                        dashboard
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                    <h3>Dashboard</h3>
-                </a>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
 
-                <a href="../berkas/berkas.php">
-                <span class="material-symbols-outlined">
-                        folder
-                </span>
-                    <h3>Berkas Kontingen</h3>
-                </a>
-
-                <a href="../peserta/peserta.php">
-                <span class="material-symbols-outlined">
-                        assignment_ind
-                </span>
-                    <h3>Data Peserta</h3>
-                </a>
-
-                <a href="../kontingen/unsurkontingen.php">
-                <span class="material-symbols-outlined">
-                        switch_account
-                </span>
-                    <h3>Data Unsur Kontingen</h3>
-                </a>
-
-                <a href="#" class="active";>
-                <span class="material-symbols-outlined">
-                        payments
-                </span> 
-                    <h3>Bukti Pembayaran</h3>
-                </a>
-
-                <a href="#" id="out">
-                    <span class="material-icons-sharp">
-                        logout
+                    <a href="../peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
                     </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+                    <a href="#" class="active";>
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } ?>
         <!-- End of Sidebar Section -->
 
         <!-- Main Content -->
@@ -126,8 +196,14 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
                     <div class="status">
                         <div class="info">
                             <h3>Total Peserta dan Unsur Kontingen</h3>
-                            <?php foreach ($data_terdaftar as $data) { ?>
-                                <h1><?php echo number_format($data['total_terdaftar']); ?> Orang</h1>
+                            <?php if ($_SESSION['kwarran'] == "all"){ ?>
+                                <?php foreach ($data_terdaftar_level as $data) { ?>
+                                    <h1><?php echo number_format($data['total_terdaftar']); ?> Orang</h1>
+                                <?php } ?>
+                            <?php }else{ ?>
+                                <?php foreach ($data_terdaftar as $data) { ?>
+                                    <h1><?php echo number_format($data['total_terdaftar']); ?> Orang</h1>
+                                <?php } ?>
                             <?php } ?>
                         </div>
                         <div class="progresss">
@@ -139,8 +215,14 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
                     <div class="status">
                         <div class="info">
                             <h3>Total Nominal</h3>
-                            <?php foreach ($data_nominal as $data) { ?>
-                                <h1>Rp. <?php echo number_format($data['total_nominal']); ?></h1>
+                            <?php if ($_SESSION['kwarran'] == "all"){ ?>
+                                <?php foreach ($level_nominal as $data) { ?>
+                                    <h1>Rp. <?php echo number_format($data['total_nominal']); ?></h1>
+                                <?php } ?>
+                            <?php }else{ ?>
+                                <?php foreach ($data_nominal as $data) { ?>
+                                    <h1>Rp. <?php echo number_format($data['total_nominal']); ?></h1>
+                                <?php } ?>
                             <?php } ?>
                         </div>
                         <div class="progresss">
@@ -168,31 +250,59 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_query)) {
                             <th>Waktu Upload</th>
                         </tr>
                     </thead>
-                    <?php 
-                        $no = 1;
-                        if ($bayar->num_rows > 0) {
-                            while ($row = $bayar->fetch_assoc()) {
-                                $file_path = "./uploadBukti/" . $row['filename'];
+                    <?php if ($_SESSION['kwarran'] == "all") { ?>
+                        <?php 
+                            $no = 1;
+                            if ($bayar_level->num_rows > 0) {
+                                while ($row = $bayar_level->fetch_assoc()) {
+                                    $file_path = "./uploadBukti/" . $row['filename'];
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $row['kwarran']; ?></td>
+                                        <td><?php echo $row['jumlah']; ?></td>
+                                        <td>Rp. <?php echo number_format($row['nominal']); ?></td>
+                                        <td><a href="<?php echo $file_path; ?>"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><?php echo $row['upload_date']; ?></td>
+                                        
+                                    </tr>
+                                    <?php
+                                }
+                            } else {
                                 ?>
                                 <tr>
-                                    <td><?php echo $no++; ?></td>
-                                    <td><?php echo $row['kwarran']; ?></td>
-                                    <td><?php echo $row['jumlah']; ?></td>
-                                    <td>Rp. <?php echo number_format($row['nominal']); ?></td>
-                                    <td><a href="<?php echo $file_path; ?>"><i class="fa-solid fa-eye"></i> Lihat</a></td>
-                                    <td><?php echo $row['upload_date']; ?></td>
-                                    
+                                    <td colspan="6"><br>Belum ada bukti pembayaran yang diupload</td>
                                 </tr>
                                 <?php
                             }
-                        } else {
-                            ?>
-                            <tr>
-                                <td colspan="6"><br>Belum ada bukti pembayaran yang diupload</td>
-                            </tr>
-                            <?php
-                        }
-                    ?>
+                        ?>
+                    <?php } else { ?>
+                        <?php 
+                            $no = 1;
+                            if ($bayar->num_rows > 0) {
+                                while ($row = $bayar->fetch_assoc()) {
+                                    $file_path = "./uploadBukti/" . $row['filename'];
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $row['kwarran']; ?></td>
+                                        <td><?php echo $row['jumlah']; ?></td>
+                                        <td>Rp. <?php echo number_format($row['nominal']); ?></td>
+                                        <td><a href="<?php echo $file_path; ?>"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><?php echo $row['upload_date']; ?></td>
+                                        
+                                    </tr>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                <tr>
+                                    <td colspan="6"><br>Belum ada bukti pembayaran yang diupload</td>
+                                </tr>
+                                <?php
+                            }
+                        ?>
+                    <?php } ?>
                 </table>
                 <a href="#" class="show">Show All</a>
             </div>
