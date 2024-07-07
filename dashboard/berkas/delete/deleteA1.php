@@ -1,8 +1,10 @@
 <?php
+session_start();
+
 // koneksi
 include '../koneksi/config.php';
 
-$sql = "DELETE FROM berkas_a1 WHERE kwarran=$kwarran";
+$sql = "DELETE FROM berkas_a1 WHERE kwarran='$_SESSION[kwarran]'";
 $a1 = $conn->query($sql);
 
 
