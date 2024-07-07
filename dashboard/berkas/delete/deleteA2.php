@@ -1,8 +1,21 @@
 <?php
+session_start();
+
 // koneksi
 include '../koneksi/config.php';
 
-$sql = "DELETE FROM berkas_a2";
+// Check if the user is logged in
+if(isset($_SESSION['name'])) {
+    // Assign the name to the $name variable
+    $name = $_SESSION['name'];
+    $kwarran = $_SESSION['kwarran'];
+} else {
+    // If not logged in, redirect to login page or handle accordingly
+    header("masjhiuh");
+    exit(); // Stop further execution
+}
+
+$sql = "DELETE FROM berkas_a2 WHERE kwarran='$kwarran'";
 $a2 = $conn->query($sql);
 
 

@@ -1,5 +1,16 @@
 <?php
 session_start();
+// Check if the user is logged in
+if(isset($_SESSION['name'])) {
+    // Assign the name to the $name variable
+    $name = $_SESSION['name'];
+    $kwarran = $_SESSION['kwarran'];
+} else {
+    // If not logged in, redirect to login page or handle accordingly
+    header("masjhiuh");
+    exit(); // Stop further execution
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if a file was uploaded without errors
     if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
@@ -28,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 // Update the file information into the database
-                $sql = "UPDATE berkas_a3 SET filename='$filename', filesize='$filesize', filetype='$filetype'" ;
+                $sql = "UPDATE berkas_a3 SET filename='$filename', filesize='$filesize', filetype='$filetype', kwarran='$kwarran'";
 
                 if ($conn->query($sql) === TRUE) {
                     // mengalihkan halaman kembali ke berkas.php
@@ -56,29 +67,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../image/favicon.svg" type="image/x-icon">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/editberkas.css">
+    <title>Raicab | Edit Berkas A3</title>
+</head>
+<body>
+
+    <div class="container">
+    <a href="../berkas.php" class="btnClose"><i class="fa-solid fa-circle-xmark"></i></a>
+        <h2>Edit Berkas A3</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="file" class="form-label">Select file</label>
+                <input type="file" class="form-control" name="file" id = "file">
+            </div>
+            <button type="submit" class="btn btn-primary" name="submit">Upload file</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/383c3b5422.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/editberkas.css">
-	<title>File upload and download</title>
-</head>
-<body>
-	<div class="container">
-    <a href="../berkas.php" class="btnClose"><i class="fa-solid fa-circle-xmark"></i></a>
-		<h2>Edit Berkas A3</h2>
-		<form action="" method="POST" enctype="multipart/form-data">
-			<div class="mb-3">
-				<label for="file" class="form-label">Select file</label>
-				<input type="file" class="form-control" name="file" id = "file">
-			</div>
-			<button type="submit" class="btn btn-primary">Upload file</button>
-		</form>
-	</div>
-
 </body>
 </html>

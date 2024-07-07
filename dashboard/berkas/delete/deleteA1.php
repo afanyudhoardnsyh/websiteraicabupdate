@@ -8,13 +8,14 @@ include '../koneksi/config.php';
 if(isset($_SESSION['name'])) {
     // Assign the name to the $name variable
     $name = $_SESSION['name'];
+    $kwarran = $_SESSION['kwarran'];
 } else {
     // If not logged in, redirect to login page or handle accordingly
     header("masjhiuh");
     exit(); // Stop further execution
 }
 
-$sql = "DELETE FROM berkas_a1 WHERE kwarran='$_SESSION[kwarran]'";
+$sql = "DELETE FROM berkas_a1 WHERE kwarran='$kwarran'";
 $a1 = $conn->query($sql);
 
 
