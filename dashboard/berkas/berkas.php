@@ -19,11 +19,11 @@ if(isset($_SESSION['name'])) {
 $sql = "SELECT *FROM berkas_a1";
 $a1 = $conn->query($sql);
 
-$sql = "SELECT *FROM berkas_a2";
-$a2 = $conn->query($sql);
+$sql_a2 = "SELECT *FROM berkas_a2";
+$a2 = $conn->query($sql_a2);
 
-$sql = "SELECT *FROM berkas_a3";
-$a3 = $conn->query($sql);
+$sql_a3 = "SELECT *FROM berkas_a3";
+$a3 = $conn->query($sql_a3);
 
 ?>  
 
