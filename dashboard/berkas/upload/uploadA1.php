@@ -1,8 +1,9 @@
 <?php
 session_start();
+var_dump('kwarran');
 
 // Check if the user is logged in
-if(isset($_SESSION['name']) && isset($_SESSION['kwarran']) {
+if(isset($_SESSION['name']) {
     // Assign the name to the $name variable
     $name = $_SESSION['name'];
     $kwarran = $_SESSION['kwarran'];
