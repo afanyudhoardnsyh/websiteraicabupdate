@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+// Check if the user is logged in
+if(isset($_SESSION['name']) && isset($_SESSION['kwarran']) {
+    // Assign the name to the $name variable
+    $name = $_SESSION['name'];
+    $kwarran = $_SESSION['kwarran'];
+} else {
+    // If not logged in, redirect to login page or handle accordingly
+    header("masjhiuh");
+    exit(); // Stop further execution
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if a file was uploaded without errors
     if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
@@ -28,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 // Insert the file information into the database
-                $sql = "INSERT INTO berkas_a1 (filename, filesize, filetype) VALUES ('$filename', $filesize, '$filetype')";
+                $sql = "INSERT INTO berkas_a1 (filename, filesize, filetype, kwarran) VALUES ('$filename', $filesize, '$filetype', '$kwarran'";
 
                 if ($conn->query($sql) === TRUE) {
                     // mengalihkan halaman kembali ke berkas.php
