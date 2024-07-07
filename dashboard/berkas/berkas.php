@@ -20,10 +20,10 @@ if(isset($_SESSION['name'])) {
 $sql = "SELECT * FROM berkas_a1 WHERE kwarran='$kwarran'";
 $a1 = $conn->query($sql);
 
-$sql_a2 = "SELECT * FROM berkas_a2";
+$sql_a2 = "SELECT * FROM berkas_a2 WHERE kwarran='$kwarran'";
 $a2 = $conn->query($sql_a2);
 
-$sql_a3 = "SELECT * FROM berkas_a3";
+$sql_a3 = "SELECT * FROM berkas_a3 WHERE kwarran='$kwarran'";
 $a3 = $conn->query($sql_a3);
 
 ?>  
