@@ -1,7 +1,7 @@
 <?php
 // Start session
 session_start();
-var_dump('kwarran');
+var_dump('name');
 
 // koneksi
 include '../koneksi/config.php';
