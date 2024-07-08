@@ -31,7 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("location: ../dashboard/dashboard.php");
             } elseif ($row['user_level'] == "3") {
                 // Alihkan ke halaman dashboard pegawai
-                header("location: ../dashboard/userlevel3.php");
+                header("location: ../dashboard/dashboard.php");
+            } elseif ($row['user_level'] == "1") {
+                // Alihkan ke halaman dashboard pegawai
+                header("location: ../dashboard/dashboard.php");
+            } elseif ($row['user_level'] == "2") {
+                // Alihkan ke halaman dashboard pegawai
+                header("location: ../dashboard/dashboard.php");
             } elseif ($row['user_level'] == "4") {
                 // Alihkan ke halaman dashboard pengurus
                 header("location: ../dashboard/dashboard.php");
