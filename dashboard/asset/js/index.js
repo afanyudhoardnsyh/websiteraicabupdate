@@ -19,3 +19,11 @@ darkMode.addEventListener('click', () => {
     darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
 });
 
+function togglePlay() {
+    var audio = document.getElementById('audio');
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
