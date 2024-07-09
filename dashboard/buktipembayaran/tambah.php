@@ -90,7 +90,7 @@ include '../koneksi/config.php';
                 // Validasi apakah jumlah sudah diisi dan lebih dari 0
                 if (!isNaN(jumlah) && jumlah > 0) {
                     // Isi otomatis nilai nominal dengan nilai jumlah
-                    inputNominal.value = jumlah * 175000;
+                    inputNominal.value = jumlah * 200000;
                 } else {
                     // Kosongkan nilai nominal jika jumlah tidak valid
                     inputNominal.value = '';

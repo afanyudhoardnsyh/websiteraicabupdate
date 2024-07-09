@@ -229,7 +229,7 @@ $a3 = $conn->query($sql_a3);
 
                                 <tr>
                                     <td>A2</td>
-                                    <td>Kesediaan Gugus Depan</td>
+                                    <td>Surat Tugas</td>
                                     <?php 
                                         if ($a2->num_rows > 0){
                                             echo "<td><button class='btnStatus'>Terkirim</button></td>";
@@ -299,6 +299,11 @@ $a3 = $conn->query($sql_a3);
                                             </td>";
                                         }
                                     ?>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <p style="color: red;">*File yang diterima berupa .PDF, .JPG, dan .PNG</p>
+                                    </td>
                                 </tr>
                     </tbody>
                 </table>

@@ -40,7 +40,7 @@
                 <br>#sipalingraicab #AksiRaicab
             </p>
             <img class="gps" src="image/gps-white.webp">
-            <h6><b> 26 s.d. 30 Juni 2024</b><br> 
+            <h6><b> 26 s.d. 30 Agustus 2024</b><br> 
                     Buperta Cibubur, Jakarta Timur</h6>
         </div>
     </section>
