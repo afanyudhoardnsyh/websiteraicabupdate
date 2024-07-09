@@ -431,7 +431,7 @@ header.show-mobile-menu .navbar .menu-links {
     left: 0;
 }
 
-/* kegiatan */
+/* media unduh */
   .services{
       padding-top: 6rem;
       height: 85vh;
@@ -611,10 +611,20 @@ footer .row .text2{
     margin-left: 3.8rem;
     padding-top: 0px;
   }   
+  
+  /* media unduh */
+  
+  .services {
+      height: 68vh;
+  }
+  
+  .services .title{
+      margin-bottom: 2rem;
+  }
 
   /* kontak */
   .contact{
-    height: 72vh;
+    height: 60vh;
   }
 
   .contact .contact-content .text{
@@ -634,7 +644,7 @@ footer .row .text2{
   }
 
   .contact .contact-content .right{
-    top: 125%;
+    top: 107%;
   }
 
   .contact .contact-content .right .alamat{
@@ -644,7 +654,7 @@ footer .row .text2{
 
   /* footer */
   footer{
-    top: 155%;
+    top: 135%;
   }
 
   footer .info-footer .maskot{
