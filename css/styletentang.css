@@ -842,12 +842,12 @@ footer .row .text2{
 
   /* kilas balik */
   .judul .text1 hr{
-    bottom: 82%;
+    bottom: 85%;
   }
   
   /* kontak */
   .contact{
-    height: 75vh;
+    height: 60vh;
   }
 
   .contact .contact-content .text{
@@ -867,7 +867,7 @@ footer .row .text2{
   }
 
   .contact .contact-content .right{
-    top: 157%;
+    top: 152%;
   }
 
   .contact .contact-content .right .alamat{
@@ -877,7 +877,7 @@ footer .row .text2{
 
   /* footer */
   footer{
-    top: 187%;
+    top: 180%;
   }
 
   footer .info-footer .maskot{
@@ -894,7 +894,3 @@ footer .row .text2{
     left: 21%;
   }
 }
-
-
-
-    
