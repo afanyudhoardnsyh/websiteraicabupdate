@@ -375,7 +375,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                         <div class="info">
                             <h3>Raimuna Cabang III</h3>
                             <small class="text_muted">
-                                18 Juni 2024
+                                26 - 30 Agustus 2024
                             </small>
                         </div>
                         <span class="material-icons-sharp">
