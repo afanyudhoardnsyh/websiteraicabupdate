@@ -30,6 +30,10 @@ body{
     border-radius: 30px;
 }
 
+img.img-fluid{
+    width: 250px;
+}
+
 
 /*------------ For small screens------------*/
 
@@ -47,5 +51,16 @@ body{
     .right-box{
         padding: 20px;
     }
+}
 
+@media only screen and (max-width: 476px){
+    img.img-fluid{
+        margin-top: 1rem;
+        width: 101px;
+    }
+    
+    .row small{
+        font-size: 12px;
+        margin-left: 10px;
+    }
 }
