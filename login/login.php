@@ -24,7 +24,7 @@
         <!-- <!-Left Box -> -->
         <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #c1e4f6;">
             <div class="featured-image mb-3">
-                <img src="../image/logo_raicab_text.png" class="img-fluid" style="width: 250px;">
+                <img src="../image/logo_raicab_text.png" class="img-fluid">
             </div>
         </div> 
 
