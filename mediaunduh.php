@@ -36,7 +36,7 @@
             <div class="serv-content">
                 <div class="card">
                     <div class="box">
-                    <a href="pdf/SERTIFIKAT.pdf" download>
+                    <a href="pdf/Edaran I Raimuna Cabang lll Kota Depok Tahun 2024.pdf" download>
                     <i class="fa-solid fa-circle-down"></i>
                     </a>
                         <div class="text">Surat Edaran</div>

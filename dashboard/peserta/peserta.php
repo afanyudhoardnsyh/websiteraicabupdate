@@ -386,7 +386,7 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         <div class="info">
                             <h3>Raimuna Cabang III</h3>
                             <small class="text_muted">
-                                18 Juni 2024
+                                26 - 30 Agustus 2024
                             </small>
                         </div>
                         <span class="material-icons-sharp">

@@ -9,7 +9,7 @@
 
 body{
     background-color: #161645;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 header {
@@ -629,18 +629,21 @@ footer .row .text2{
     footer .row .text2{
         left: 51%;
     }
-    
-    .scroll-up-btn{
-        right: 15px;
-        bottom: 15px;
-        height: 38px;
-        width: 35px;
-        font-size: 23px;
-        line-height: 38px;
-    }
 }
 
 @media (max-width: 476px) {
+    *{
+         overflow-x: hidden;
+    }
+    
+    #close-menu-btn,
+    #hamburger-btn{
+        overflow-y: hidden;
+    }
+    
+    .wrapper{
+         z-index: 0;
+    }
 
     .navbar img{
         margin-left: 1.5rem;
@@ -654,19 +657,23 @@ footer .row .text2{
         margin-left: -3.8rem;
     }   
 
-    /* krgiatan */
+    /* kegiatan */
     .kegiatan .max-width .title{
         font-size: 20px;
         width: 80%;
+        overflow-y: hidden;
+        margin-top: 3rem;
     }
 
     /* kontak */
     .contact{
-        height: 75vh;
+        height: 60vh;
+        overflow-y: hidden;
     }
 
     .contact .contact-content .text{
         padding-top: 1rem;
+        overflow-y: hidden;
     }
     
     .contact .contact-content .text-1{
@@ -682,7 +689,8 @@ footer .row .text2{
     }
     
     .contact .contact-content .right{
-        top: 94%;
+        top: 86.5%;
+        overflow-y: hidden;
     }
     
     .contact .contact-content .right .alamat{
@@ -692,7 +700,7 @@ footer .row .text2{
 
     /* footer */
     footer{
-        top: 125%;
+        top: 115%;
     } 
 
     footer .info-footer .maskot{
@@ -708,5 +716,4 @@ footer .row .text2{
     footer .row .text{
         left: 17%;
     }
-
 }

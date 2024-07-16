@@ -8,7 +8,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 header {
     position:fixed;
     top: 0;
@@ -37,7 +36,7 @@ header .navbar {
 }
 
 .navbar .logo {
-    color: white;
+    color: #fff;
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
@@ -268,7 +267,7 @@ header .navbar {
 }
 
 .countdown{
-    width: 59%;
+    width: 58%;
     display: flex;
     background-color: #000080;
     box-shadow: -7px 12px 25px 8px rgb(43, 43, 43);
@@ -831,6 +830,8 @@ footer .row .text2{
         left: 55%;
         font-size: 12px;
     }
+
+    
     
     .scroll-up-btn{
         right: 15px;
@@ -863,7 +864,7 @@ footer .row .text2{
 
     /* tentang */
     .home .home-content{
-        margin-top: 47rem;
+        margin-top: 54rem;
     }
 
     .home .home-content .text{
@@ -894,7 +895,7 @@ footer .row .text2{
 
     /* kontak */
     .contact{
-        height: 70vh;
+        height: 60vh;
     }
 
     .contact .contact-content .left img{
@@ -936,7 +937,6 @@ footer .row .text2{
         margin-bottom: 1.5rem;
     }
 
-
     /* footer */
     footer .info-footer .maskot{
         margin-left: 0.5rem;
@@ -945,7 +945,7 @@ footer .row .text2{
     footer .row .text,
     footer .row .text1,
     footer .row .text2{
-        top: 288.7%;
+        top: 288.4%;
     }
 
     footer .row .text{
@@ -955,6 +955,4 @@ footer .row .text2{
     footer .row .text2{
         left: 55%;
     }
-
-
 }

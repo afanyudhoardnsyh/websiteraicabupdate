@@ -30,7 +30,6 @@ body{
     border-radius: 30px;
 }
 
-
 /*------------ For small screens------------*/
 
 @media only screen and (max-width: 768px){
@@ -47,5 +46,11 @@ body{
     .right-box{
         padding: 20px;
     }
+}
 
+@media only screen and (max-width: 476px){    
+    .row small{
+        font-size: 12px;
+        margin-left: 10px;
+    }
 }
