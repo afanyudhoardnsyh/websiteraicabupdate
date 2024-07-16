@@ -7,7 +7,7 @@
     <!-- Google Fonts Links For Icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="shortcut icon" href="./image/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./css//style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
@@ -148,8 +148,22 @@
             <div class="text2">2024 All rights reserved.</div> 
         </div>
     </footer>
+
+    <audio id="background-music" loop>
+        <source src="dashboard/asset/audio/themesongraicab.aac" type="audio/aac">
+        Your browser does not support the audio element.
+    </audio>
+
     <script src="asset/countdown.js"></script>
     <script src="asset/navbar.js"></script>
     <script src="asset/activenavbar.js"></script>
+    <script>
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
 </body>
 </html>
