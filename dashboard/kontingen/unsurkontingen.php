@@ -9,6 +9,7 @@ include '../includes/ucapan.php';
 if(isset($_SESSION['name'])) {
     // Assign the name to the $name variable
     $name = $_SESSION['name'];
+    $kwarran = $_SESSION['kwarran'];
 } else {
     // If not logged in, redirect to login page or handle accordingly
     header("masjhiuh");
