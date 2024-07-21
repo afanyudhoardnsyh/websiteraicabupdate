@@ -2,10 +2,6 @@
 	border-top: 1px solid #d9d9d9;
 }
 
-.dataTable-wrapper.no-footer .dataTable-container {
-	border-bottom: 1px solid #d9d9d9;
-}
-
 .dataTable-top,
 .dataTable-bottom {
 	padding: 8px 10px;
@@ -109,13 +105,11 @@
 .dataTable-table > thead > tr > th {
 	vertical-align: bottom;
 	text-align: left;
-	border-bottom: 1px solid #d9d9d9;
 }
 
 .dataTable-table > tfoot > tr > th {
 	vertical-align: bottom;
 	text-align: left;
-	border-top: 1px solid #d9d9d9;
 }
 
 .dataTable-table th {
