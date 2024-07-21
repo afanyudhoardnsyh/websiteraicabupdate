@@ -220,7 +220,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>
-                            <td><?php echo $no++; ?></td>
+                            <td style="text-align:center;><?php echo $no++; ?></td>
                             <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
