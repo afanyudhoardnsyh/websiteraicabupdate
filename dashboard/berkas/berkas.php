@@ -154,6 +154,13 @@ $a3 = $conn->query($sql_a3);
                         <h3>Data Peserta</h3>
                     </a>
 
+                    <a href="../kontingen/unsurkontingen.php">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
                     <a href="../buktipembayaran/buktibayar.php">
                     <span class="material-symbols-outlined">
                             payments
