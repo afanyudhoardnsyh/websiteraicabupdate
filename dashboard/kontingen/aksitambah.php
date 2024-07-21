@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nohp = $_POST['nohp'];
     $ukkaos = $_POST['ukuran_kaos'];
     $golongan = $_POST['golongan'];
+    $bpjs = NULL; // Default value if no file is uploaded
 
     // Check if a file was uploaded without errors
     $target_dir_bpjs = "./uploadFile/bpjs/"; // Change this to the desired directory for uploaded files
