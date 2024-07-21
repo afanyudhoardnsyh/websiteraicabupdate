@@ -148,6 +148,13 @@ $jumlah_peserta_level = mysqli_num_rows($data_peserta);
                         <h3>Data Peserta</h3>
                     </a>
 
+		    <a href="../kontingen/unsurkontingen.php">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
                     <a href="../buktipembayaran/buktibayar.php">
                     <span class="material-symbols-outlined">
                             payments
