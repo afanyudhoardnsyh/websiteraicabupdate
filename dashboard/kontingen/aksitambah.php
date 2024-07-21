@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
         // Redirect to peserta.php with success message
         $_SESSION['success'] = 'Data berhasil ditambahkan';
-        header("location: ../kontingen/peserta.php");
+        header("location: ../kontingen/unsurkontingen.php");
     } else {
         // Handle database insert error
         $_SESSION['error'] = "Sorry, there was an error storing information in the database: " . $conn->error;
