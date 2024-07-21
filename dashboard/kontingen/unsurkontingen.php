@@ -43,70 +43,132 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
 
     <div class="container">
         <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
-                    <h2>Raicab III<span class="danger"></span></h2>
+        <?php if ($_SESSION['kwarran'] == "all") { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
+                
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                </div>
-            </div>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
 
-            <div class="sidebar">
-                <a href="../dashboard.php">
-                    <span class="material-icons-sharp">
-                        dashboard
+                    <a href="../peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
                     </span>
-                    <h3>Dashboard</h3>
-                </a>
+                        <h3>Data Peserta</h3>
+                    </a>
 
-                <a href="../berkas/berkas.php">
-                <span class="material-symbols-outlined">
-                        folder
-                </span>
-                    <h3>Berkas Kontingen</h3>
-                </a>
+                    <a href="#" class="active">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
 
-                <a href="../peserta/peserta.php">
-                <span class="material-symbols-outlined">
-                        assignment_ind
-                </span>
-                    <h3>Data Peserta</h3>
-                </a>
+                    <a href="../buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
 
-                <a href="#" class="active";>
-                <span class="material-symbols-outlined">
-                        switch_account
-                </span>
-                    <h3>Data Unsur Kontingen</h3>
-                </a>
-
-                <a href="../buktipembayaran/buktibayar.php">
-                <span class="material-symbols-outlined">
-                        payments
-                </span> 
-                    <h3>Bukti Pembayaran</h3>
-                </a>
-
-                <a href="../rekapbaju.php">
+                    <a href="../rekapbaju.php">
                     <span class="material-symbols-outlined">
                         laundry
                     </span> 
                         <h3>Rekap Baju</h3>
-                </a>
+                    </a>
 
-                <a href="#" id="out">
-                    <span class="material-icons-sharp">
-                        logout
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } else { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
+
+                    <a href="../peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+		    <a href="#" class="active">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
+                    <a href="../buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } ?>
+
         <!-- End of Sidebar Section -->
 
         <!-- Main Content -->
