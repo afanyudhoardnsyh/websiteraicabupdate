@@ -126,7 +126,7 @@ $totalkaos = $total_semua_kaos;
                     <h3>Data Unsur Kontingen</h3>
                 </a>
 
-                <a href="../buktipembayaran/buktibayar.php">
+                <a href="./buktipembayaran/buktibayar.php">
                 <span class="material-symbols-outlined">
                         payments
                 </span> 
