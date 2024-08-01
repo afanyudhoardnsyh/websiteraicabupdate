@@ -176,6 +176,13 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                         <h3>Data Peserta</h3>
                     </a>
 
+                    <a href="../kontingen/unsurkontingen.php">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
                     <a href="#" class="active";>
                     <span class="material-symbols-outlined">
                             payments

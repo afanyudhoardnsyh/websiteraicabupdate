@@ -9,6 +9,7 @@ include '../includes/ucapan.php';
 if(isset($_SESSION['name'])) {
     // Assign the name to the $name variable
     $name = $_SESSION['name'];
+    $kwarran = $_SESSION['kwarran'];
 } else {
     // If not logged in, redirect to login page or handle accordingly
     header("masjhiuh");
@@ -35,6 +36,8 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- css -->
     <link rel="stylesheet" href="../asset/css/stylekontingen.css">
+	<link rel="stylesheet" href="../asset/css/table-datatable.css">
+    <link rel="stylesheet" href="../asset/css/style-datatable.css">
 </head>
 <body>
 
@@ -42,96 +45,158 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
 
     <div class="container">
         <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
-                    <h2>Raicab III<span class="danger"></span></h2>
+        <?php if ($_SESSION['kwarran'] == "all") { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
+                
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                </div>
-            </div>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
 
-            <div class="sidebar">
-                <a href="../dashboard.php">
-                    <span class="material-icons-sharp">
-                        dashboard
+                    <a href="../peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
                     </span>
-                    <h3>Dashboard</h3>
-                </a>
+                        <h3>Data Peserta</h3>
+                    </a>
 
-                <a href="../berkas/berkas.php">
-                <span class="material-symbols-outlined">
-                        folder
-                </span>
-                    <h3>Berkas Kontingen</h3>
-                </a>
+                    <a href="#" class="active">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
 
-                <a href="../peserta/peserta.php">
-                <span class="material-symbols-outlined">
-                        assignment_ind
-                </span>
-                    <h3>Data Peserta</h3>
-                </a>
+                    <a href="../buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
 
-                <a href="#" class="active";>
-                <span class="material-symbols-outlined">
-                        switch_account
-                </span>
-                    <h3>Data Unsur Kontingen</h3>
-                </a>
-
-                <a href="../buktipembayaran/buktibayar.php">
-                <span class="material-symbols-outlined">
-                        payments
-                </span> 
-                    <h3>Bukti Pembayaran</h3>
-                </a>
-
-                <a href="../rekapbaju.php">
+                    <a href="../rekapbaju.php">
                     <span class="material-symbols-outlined">
                         laundry
                     </span> 
                         <h3>Rekap Baju</h3>
-                </a>
+                    </a>
 
-                <a href="#" id="out">
-                    <span class="material-icons-sharp">
-                        logout
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } else { ?>
+            <aside>
+                <div class="toggle">
+                    <div class="logo">
+                        <img src="../asset/image/OFC_Logo_Raicab_Polos.webp">
+                        <h2>Raicab III<span class="danger"></span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <a href="../dashboard.php">
+                        <span class="material-icons-sharp">
+                            dashboard
+                        </span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    
+                    <a href="../berkas/berkas.php">
+                    <span class="material-symbols-outlined">
+                            folder
                     </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
+                        <h3>Berkas Kontingen</h3>
+                    </a>
+
+                    <a href="../peserta/peserta.php">
+                    <span class="material-symbols-outlined">
+                            assignment_ind
+                    </span>
+                        <h3>Data Peserta</h3>
+                    </a>
+
+		    <a href="#" class="active">
+                    <span class="material-symbols-outlined">
+                            switch_account
+                    </span>
+                        <h3>Data Unsur Kontingen</h3>
+                    </a>
+
+                    <a href="../buktipembayaran/buktibayar.php">
+                    <span class="material-symbols-outlined">
+                            payments
+                    </span> 
+                        <h3>Bukti Pembayaran</h3>
+                    </a>
+
+                    <a href="#" id="out">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <?php } ?>
+
         <!-- End of Sidebar Section -->
 
         <!-- Main Content -->
         <main>
 
         <!-- Table -->
-            <div class="recent-orders">
+        <div class="recent-orders">
                 <h2>Data Unsur Kontingen</h2>
                 <a href="../kontingen/tambah.php" class="tambah">
                     <span class="material-symbols-outlined">add</span>
-                    <h3>Add Kontingen</h3>
+                    <h3>Add Peserta</h3>
                 </a>
-                <table>
+            <div class="card-body" style="margin-top: 4rem;">
+                <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th style="text-align:center;">No</th>
                             <th>Nama Lengkap</th>
                             <th>Jenis Kelamin</th>
                             <th>Kwarran</th>
                             <th>Golongan</th>
-                            <th>Ukuran Kaos</th>
-                            <th></th>
+                            <th style="text-align:center;">Ukuran Kaos</th>
                         </tr>
                     </thead>
-                    <!-- <?php var_dump($_SESSION['kwarran']) ?> -->
-                    <?php if ($_SESSION['kwarran']=="all") { ?>
+                    <!-- <?php var_dump($_SESSION['kwarran'])?> -->
+                    <?php if ($_SESSION['kwarran'] == "all") { ?>
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
@@ -139,34 +204,34 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>
-                            <td><?php echo $no++; ?></td>
+                            <td style="text-align:center;"><?php echo $no++; ?></td>
                             <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
-                            <td><?php echo $d['ukuran_kaos']; ?></td>
+                            <td style="text-align:center;"><?php echo $d['ukuran_kaos']; ?></td>
                         </tr>
                         <?php } ?>
                     <?php }else{ ?>
                         <?php 
                             include '../koneksi/config.php';
                             $no = 1;
-	                        $data = mysqli_query($conn, "SELECT * FROM unsur_kontingen WHERE kwarran='$_SESSION[kwarran]'");
+	                        $data = mysqli_query($conn, "SELECT * FROM unsur_kontingen WHERE kwarran = '$_SESSION[kwarran]'");
                             while($d = mysqli_fetch_array($data)){
                         ?>
                         <tr>
-                            <td><?php echo $no++; ?></td>
+                            <td style="text-align:center;"><?php echo $no++; ?></td>
                             <td><?php echo $d['nama']; ?></td>
                             <td><?php echo $d['jenis_kelamin']; ?></td>
                             <td><?php echo $d['kwarran']; ?></td>
                             <td><?php echo $d['golongan']; ?></td>
-                            <td><?php echo $d['ukuran_kaos']; ?></td>
+                            <td style="text-align:center;"><?php echo $d['ukuran_kaos']; ?></td>
                         </tr>
                         <?php } ?>
                     <?php } ?>
                 </table>
-                <a href="#" class="show">Show All</a>
             </div>
+        </div>
         <!-- End of Table -->
 
 
@@ -266,5 +331,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
     <script src="../asset/js/index.js"></script>
     <script src="../asset/js/sweetalert.js"></script>
     <script src="../asset/js/audio.js"></script>
+	<script src="../asset/js/simple-datatables_1.js"></script>
+    <script src="../asset/js/simple-datatables_2.js"></script>
 </body>
 </html>
