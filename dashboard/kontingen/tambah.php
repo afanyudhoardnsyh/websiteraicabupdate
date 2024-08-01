@@ -46,10 +46,10 @@ $datakwarran = $result;
 
                         <div class="input-field">
                             <label>Kategori</label>
-                            <select name="kategori">
-                                <option disabled selected>Pilih Kategori</option>
-                                <option>Pinkon</option>
-                                <option>Bindamping</option>
+                            <select name="kategori" required>
+                                <option value="" disabled selected>Pilih Kategori</option>
+                                <option value="Pinkon">Pinkon</option>
+                                <option value="Bindamping">Bindamping</option>
                             </select>
                         </div>
 
@@ -57,30 +57,31 @@ $datakwarran = $result;
                             <label>Kwarran</label>
                             <!-- <input type="text" name="kwarran" placeholder="Masukkan Kwarran" required> -->
                             <select name="kwarran" required>
-                                <option disabled selected>Pilih Kwarran</option>
-                                <option>Pancoran Mas</option>
-                                <option>Cipayung</option>
-                                <option>Sawangan</option>
-                                <option>Bojongsari</option>
-                                <option>Cinere</option>
-                                <option>Limo</option>
-                                <option>Beji</option>
-                                <option>Cimanggis</option>
-                                <option>Tapos</option>
-                                <option>Sukmajaya</option>
-                                <option>Cilodong</option>
+                                <option value="" disabled selected>Pilih Kwarran</option>
+                                <option value="Pancoran Mas">Pancoran Mas</option>
+                                <option value="Cipayung">Cipayung</option>
+                                <option value="Sawangan">Sawangan</option>
+                                <option value="Bojongsari">Bojongsari</option>
+                                <option value="Cinere">Cinere</option>
+                                <option value="Limo">Limo</option>
+                                <option value="Beji">Beji</option>
+                                <option value="Cimanggis">Cimanggis</option>
+                                <option value="Tapos">Tapos</option>
+                                <option value="Sukmajaya">Sukmajaya</option>
+                                <option value="Cilodong">Cilodong</option>
                                 <?php foreach ($datakwarran as $datakwarran) { ?>
                                     <option value="<?=$datakwarran['nama_kwarran']?>"><?=$datakwarran['nama_kwarran']?></option>
                                 <?php } ?>
                             </select>
                         </div>
 
+
                         <div class="input-field">
                             <label>Jenis Kelamin</label>
                             <select name="jenis_kelamin" required>
-                                <option disabled selected>Pilih Jenis Kelamin</option>
-                                <option>Laki-Laki</option>
-                                <option>Perempuan</option>
+                                <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
                             </select>
                         </div>
 
@@ -92,21 +93,22 @@ $datakwarran = $result;
                         <div class="input-field">
                             <label>Ukuran Kaos</label>
                             <select name="ukuran_kaos" required>
-                                <option disabled selected>Pilih Ukuran</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
+                                <option value="" disabled selected>Pilih Ukuran</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label>Golongan (T/D)</label>
                             <select name="golongan" required>
-                                <option disabled selected>Pilih Golongan</option>
-                                <option>Penegak</option>
-                                <option>Pandega</option>
-                                <option>Pembina</option>
+                                <option value="" disabled selected>Pilih Golongan</option>
+                                <option value="Penegak">Penegak</option>
+                                <option value="Pandega">Pandega</option>
+                                <option value="Pembina">Pembina</option>
                             </select>
                         </div>
 
