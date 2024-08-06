@@ -276,7 +276,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                                         <td><?php echo $row['kwarran']; ?></td>
                                         <td><?php echo $row['jumlah']; ?></td>
                                         <td>Rp. <?php echo number_format($row['nominal']); ?></td>
-                                        <td><a href="<?php echo $file_path; ?>"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><a href="<?php echo $file_path; ?>" target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
                                         <td><?php echo $row['upload_date']; ?></td>
                                         
                                     </tr>
@@ -302,7 +302,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                                         <td><?php echo $row['kwarran']; ?></td>
                                         <td><?php echo $row['jumlah']; ?></td>
                                         <td>Rp. <?php echo number_format($row['nominal']); ?></td>
-                                        <td><a href="<?php echo $file_path; ?>"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td><a href="<?php echo $file_path; ?> target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
                                         <td><?php echo $row['upload_date']; ?></td>
                                         
                                     </tr>
