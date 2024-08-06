@@ -32,6 +32,9 @@ $jk_xl_peserta = mysqli_num_rows($kaos_xl_peserta);
 $kaos_xxl_peserta = mysqli_query($conn ,"SELECT * FROM peserta where ukuran_kaos='XXL'");
 $jk_xxl_peserta = mysqli_num_rows($kaos_xxl_peserta);
 
+$kaos_xxxl_peserta = mysqli_query($conn ,"SELECT * FROM peserta where ukuran_kaos='XXXL'");
+$jk_xxxl_peserta = mysqli_num_rows($kaos_xxxl_peserta);
+
 
 // Hitung jumlah kaos kontingen
 $kaos_s_kontingen = mysqli_query($conn ,"SELECT * FROM unsur_kontingen where ukuran_kaos='S'");
@@ -49,6 +52,9 @@ $jk_xl_kontingen = mysqli_num_rows($kaos_xl_kontingen);
 $kaos_xxl_kontingen = mysqli_query($conn ,"SELECT * FROM unsur_kontingen where ukuran_kaos='XXL'");
 $jk_xxl_kontingen = mysqli_num_rows($kaos_xxl_kontingen);
 
+$kaos_xxxl_kontingen = mysqli_query($conn ,"SELECT * FROM unsur_kontingen where ukuran_kaos='XXXL'");
+$jk_xxxl_kontingen = mysqli_num_rows($kaos_xxxl_kontingen);
+
 // total kaos kontingen
 $total_kaos_s = $jk_s_peserta + $jk_s_kontingen;
 $totalkaos_s = $total_kaos_s;
@@ -65,7 +71,10 @@ $totalkaos_xl = $total_kaos_xl;
 $total_kaos_xxl = $jk_xxl_peserta + $jk_xxl_kontingen;
 $totalkaos_xxl = $total_kaos_xxl;
 
-$total_semua_kaos = $total_kaos_s +  $total_kaos_m + $total_kaos_l + $total_kaos_xl + $total_kaos_xxl;
+$total_kaos_xxxl = $jk_xxxl_peserta + $jk_xxxl_kontingen;
+$totalkaos_xxxl = $total_kaos_xxxl;
+
+$total_semua_kaos = $total_kaos_s +  $total_kaos_m + $total_kaos_l + $total_kaos_xl + $total_kaos_xxl + $total_kaos_xxxl;
 $totalkaos = $total_semua_kaos;
 
 ?>
@@ -215,6 +224,14 @@ $totalkaos = $total_semua_kaos;
                             <td> Unsur Kontingen</td>
                             <td> <?php echo $jk_xxl_kontingen ?> pcs</td>
                             <td> <?php echo $totalkaos_xxl ?> pcs</td>
+                        </tr>
+                        <tr>
+                            <td> XXXL</td>
+                            <td> Peserta</td>
+                            <td> <?php echo $jk_xxxl_peserta ?> pcs</td>
+                            <td> Unsur Kontingen</td>
+                            <td> <?php echo $jk_xxxl_kontingen ?> pcs</td>
+                            <td> <?php echo $totalkaos_xxxl ?> pcs</td>
                         </tr>
                         <tr>
                         </tr>
