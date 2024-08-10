@@ -209,7 +209,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                 <div class="peserta">
                     <div class="status">
                         <div class="info">
-                            <h3>Total Peserta</h3>
+                            <h3>Berhasil Terbayar</h3>
                             <?php if ($_SESSION['kwarran'] == "all"){ ?>
                                 <?php foreach ($data_terdaftar_level as $data) { ?>
                                     <h1><?php echo number_format($data['total_terdaftar']); ?> Orang</h1>
