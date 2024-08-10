@@ -470,6 +470,10 @@ main .recent-orders .show{
         flex-basis: 40%;
     }
 
+    main .chart-kontingen {
+        margin-top: 2rem ;
+    }
+
     main .recent-orders {
         width: 94%;
         position: absolute;
