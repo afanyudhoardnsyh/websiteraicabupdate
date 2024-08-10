@@ -241,8 +241,6 @@ if (!$result) {
                             <th>Kontingen</th>
                             <th>Jumlah Peserta</th>
                             <th>Pembayaran</th>
-                            <th>Status</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -256,7 +254,6 @@ if (!$result) {
                                     <td><?php echo $row['kwarran']; ?></td>
                                     <td><?php echo $row['jumlah']; ?></td>
                                     <td>Sukses</td>
-                                    <td>Aktif</td>
                                 </tr>
                                 <?php
                             }
