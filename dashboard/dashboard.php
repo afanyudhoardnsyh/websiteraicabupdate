@@ -252,7 +252,7 @@ if (!$result) {
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['kwarran']; ?></td>
-                                    <td><?php echo $row['jumlah']; ?></td>
+                                    <td><?php echo $row['jumlah']; ?> Orang</td>
                                     <td>Sukses</td>
                                 </tr>
                                 <?php
