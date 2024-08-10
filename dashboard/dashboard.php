@@ -225,8 +225,13 @@ if (!$result) {
             </div>
             <!-- End of Dashboard -->
 
-            <?php include './chart.php'; ?>
+            <!-- chart kontingen -->
+            <div class="chart-kontingen">
+                <h2>Data Kontingen</h2>
+                <div id="chart-profile-visit"></div>
+            </div>
 
+            <!-- Table data pembayaran kontingen -->
             <div class="recent-orders">
                 <h2>Data Pembayaran Kontingen</h2>
                 <table>
@@ -355,5 +360,90 @@ if (!$result) {
     <script src="./asset/js/index.js"></script>
     <script src="./asset/js/sweetalert.js"></script>
     <script src="./asset/js/charts.js"></script>
+    <script src="./asset/apexcharts/apexcharts.js"></script>
+    <script>
+        var optionsProfileVisit = {
+        annotations: {
+            position: "back",
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        chart: {
+            type: "bar",
+            height: 300,
+        },
+        fill: {
+            opacity: 1,
+        },
+        plotOptions: {},
+        series: [
+            {
+            name: "Jumlah",
+            data: [
+                <?php 
+                    $jumlah_beji = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Beji'");
+                    echo mysqli_num_rows($jumlah_beji);
+                ?>, 
+                <?php 
+                    $jumlah_bojongsari = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Bojongsari'");
+                    echo mysqli_num_rows($jumlah_bojongsari);
+                ?>, 
+                <?php 
+                    $jumlah_cilodong = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Cilodong'");
+                    echo mysqli_num_rows($jumlah_cilodong);
+                ?>, 
+                <?php 
+                    $jumlah_cimanggis = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Cimanggis'");
+                    echo mysqli_num_rows($jumlah_cimanggis);
+                ?>, 
+                <?php 
+                    $jumlah_cinere = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Cinere'");
+                    echo mysqli_num_rows($jumlah_cinere);
+                ?>, 
+                <?php 
+                    $jumlah_cipayung = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Cipayung'");
+                    echo mysqli_num_rows($jumlah_cipayung);
+                ?>, 
+                <?php 
+                    $jumlah_limo = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Limo'");
+                    echo mysqli_num_rows($jumlah_limo);
+                ?>, 
+                <?php 
+                    $jumlah_panmas = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Pancoran Mas'");
+                    echo mysqli_num_rows($jumlah_panmas);
+                ?>, 
+                <?php 
+                    $jumlah_sawangan = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Sawangan'");
+                    echo mysqli_num_rows($jumlah_sawangan);
+                ?>, 
+
+                        
+            ],
+            },
+        ],
+        colors: "#1786BD",
+        xaxis: {
+            categories: [
+            "Beji",
+            "Bojongsari",
+            "Cilodong",
+            "Cimanggis",
+            "Cinere",
+            "Cipayung",
+            "Limo",
+            "Pancoran Mas",
+            "Sawangan",
+            ],
+        },
+        }
+
+        var chartProfileVisit = new ApexCharts(
+            document.querySelector("#chart-profile-visit"),
+            optionsProfileVisit
+        )
+
+        chartProfileVisit.render()
+    </script>
 </body>
 </html>
