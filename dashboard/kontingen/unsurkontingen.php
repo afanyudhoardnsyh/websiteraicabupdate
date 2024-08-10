@@ -181,7 +181,7 @@ $jumlah_peserta = mysqli_num_rows($data_peserta);
                 <h2>Data Unsur Kontingen</h2>
                 <a href="../kontingen/tambah.php" class="tambah">
                     <span class="material-symbols-outlined">add</span>
-                    <h3>Add Peserta</h3>
+                    <h3>Add Unsur Kontingen</h3>
                 </a>
             <div class="card-body" style="margin-top: 4rem;">
                 <table class="table table-striped" id="table1">
