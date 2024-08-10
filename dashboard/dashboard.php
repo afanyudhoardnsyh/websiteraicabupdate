@@ -218,7 +218,7 @@ if (!$result) {
                             <h1>11 Kontingen</h1>
                         </div>
                         <div class="progresss">
-                            <i class="fa-solid fa-circle-user"></i>
+                            <i class="fa-solid fa-group-arrows-rotate"></i>
                         </div>
                     </div>
                 </div>
