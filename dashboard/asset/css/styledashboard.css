@@ -260,7 +260,7 @@ main .chart-kontingen{
 }
 
 main .recent-orders{
-    margin-top: 3rem;
+    margin-top: -3rem;
 }
 
 main .recent-orders h2{
