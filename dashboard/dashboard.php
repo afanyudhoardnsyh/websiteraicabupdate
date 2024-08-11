@@ -414,7 +414,10 @@ if (!$result) {
                     $jumlah_sawangan = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Sawangan'");
                     echo mysqli_num_rows($jumlah_sawangan);
                 ?>, 
-
+                <?php 
+                    $jumlah_tapos = mysqli_query($conn,"SELECT * FROM peserta WHERE kwarran='Tapos'");
+                    echo mysqli_num_rows($jumlah_tapos);
+                ?>,
                         
             ],
             },
@@ -431,6 +434,7 @@ if (!$result) {
             "Limo",
             "Pancoran Mas",
             "Sawangan",
+            "Tapos",
             ],
         },
         }
