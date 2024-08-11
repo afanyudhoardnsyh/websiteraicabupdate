@@ -97,11 +97,12 @@
 	padding: 6px 12px;
 	position: relative;
 	text-decoration: none;
-	color: #333;
+	color: var(--color-dark);
 }
 
 .dataTable-pagination a:hover {
-	background-color: #d9d9d9;
+	background-color: var(--color-primary);
+	color: #fff;
 }
 
 .dataTable-pagination .active a,
