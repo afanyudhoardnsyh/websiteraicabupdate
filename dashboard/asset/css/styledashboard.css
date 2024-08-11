@@ -259,9 +259,9 @@ main .chart-kontingen{
     margin-top: 1.3rem;
 }
 
-/* main .recent-orders{
-    margin-top: 1.3rem;
-} */
+main .recent-orders{
+    margin-top: -1.3rem;
+}
 
 main .recent-orders h2{
     margin-bottom: 0.8rem;
