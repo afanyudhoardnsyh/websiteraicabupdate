@@ -255,8 +255,12 @@ main .dashboard .progresss i{
     color: var(--color-primary);
 }
 
-main .recent-orders{
+main .chart-kontingen{
     margin-top: 1.3rem;
+}
+
+main .recent-orders{
+    margin-top: -2.6rem;
 }
 
 main .recent-orders h2{
@@ -466,6 +470,10 @@ main .recent-orders .show{
         flex-basis: 40%;
     }
 
+    main .chart-kontingen {
+        margin-top: 2rem ;
+    }
+
     main .recent-orders {
         width: 94%;
         position: absolute;
@@ -551,9 +559,13 @@ main .recent-orders .show{
         flex-basis: 35%;
     }
 
+    main .chart-kontingen{
+        margin: 3rem 0 0 0;
+    }
+
     main .recent-orders{
         position: relative;
-        margin: 3rem 0 0 0;
+        margin: 0 0 0 0;
         width: 100%;
     }
 
