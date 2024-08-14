@@ -126,7 +126,7 @@ header .navbar {
   padding-top: 11rem;
   color: black;
   background: #fff;
-  height: 100vh;
+  height: 150vh;
 }
 
 .services .max-width{
@@ -262,6 +262,7 @@ header .navbar {
   float: right;
   left: 50%;
   top: 108.5%;
+  margin-top: 35%;
 }
 
 .contact .contact-content .right .text{
@@ -312,7 +313,7 @@ footer{
   padding: 5px 19px;
   color: #fff;
   position: absolute;
-  top: 185%;
+  top: 239%;
 }
 
 footer .info-footer .maskot{
@@ -344,9 +345,6 @@ footer .row .text2{
   left: 54%;
   font-size: 1.2rem;
 }
-
-
-
 
 
 /* responsive media query start */
@@ -670,4 +668,49 @@ footer .row .text2{
   footer .row .text{
     left: 20%;
   }
+}
+
+@media (max-width: 768px) {
+    footer .row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    footer {
+      top: 175%;
+    }
+}
+
+@media (max-width: 834px) {
+     .right {
+        display: none;
+    }
+
+    .contact .contact-content .column .left {
+      margin-top: 1%;
+    }
+
+    .contact .contact-content .column .left img{
+        max-width: 16%;
+        height: auto;
+        margin: 0px 1rem 0rem 0rem;  
+      }
+
+    .services .serv-content .card {
+        border: 2px solid #e69138; /* Warna outline, sesuaikan jika perlu */
+        border-radius: 8px; /* Sesuaikan radius sudut jika perlu */
+        padding: 20px; /* Padding di dalam card */
+        background-color: #fff; /* Warna latar belakang card */
+        transition: all 0.3s ease; /* Transisi efek jika ingin menambahkan animasi */
+    }
+
+    .services .serv-content .card:hover {
+        transform: scale(1.05); /* Efek zoom saat hover, jika ingin tetap ada */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan tambahan saat hover, jika diinginkan */
+    }
+
+    .services {
+      height: 800px;
+    }
+
 }
