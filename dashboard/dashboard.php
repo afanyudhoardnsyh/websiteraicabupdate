@@ -30,7 +30,7 @@ $stmt->close();
 $level1_peserta = mysqli_query($conn, "SELECT * FROM peserta");
 $total_peserta = mysqli_num_rows($level1_peserta);
 
-$sql = "SELECT * FROM pembayaran";
+$sql = "SELECT * FROM pembayaran ORDER BY id DESC LIMIT 3";
 $result = $conn->query($sql);
 if (!$result) {
     echo "Error executing query: " . $conn->error;
