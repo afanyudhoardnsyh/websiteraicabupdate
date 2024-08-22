@@ -177,7 +177,7 @@ if (!$result) {
                         <h3>Bukti Pembayaran</h3>
                     </a>
 
-                    <a href="../logout/logout.php" id="out">
+                    <a href="#" id="out">
                     <span class="material-icons-sharp">
                         logout
                     </span>
