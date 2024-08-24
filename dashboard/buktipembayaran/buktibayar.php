@@ -275,13 +275,12 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                                     $file_path = "./uploadBukti/" . $row['filename'];
                                     ?>
                                     <tr>
-                                        <td><?php echo $no++; ?></td>
+                                        <td style:"text-align:center;"><?php echo $no++; ?></td>
                                         <td><?php echo $row['kwarran']; ?></td>
-                                        <td><?php echo $row['jumlah']; ?></td>
+                                        <td style:"text-align:center;"><?php echo $row['jumlah']; ?></td>
                                         <td>Rp. <?php echo number_format($row['nominal']); ?></td>
-                                        <td><a href="<?php echo $file_path; ?>" target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
+                                        <td style:"text-align:center;"><a href="<?php echo $file_path; ?>" target="_blank"><i class="fa-solid fa-eye"></i> Lihat</a></td>
                                         <td><?php echo $row['upload_date']; ?></td>
-                                        
                                     </tr>
                                     <?php
                                 }
