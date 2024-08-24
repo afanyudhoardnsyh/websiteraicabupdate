@@ -256,7 +256,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                     <h3>Add Pembayaran</h3>
                 </a>
             <div class="card-body" style="padding-top: 3rem;">
-                <table>
+                <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>
