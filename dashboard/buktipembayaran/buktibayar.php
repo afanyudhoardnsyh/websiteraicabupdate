@@ -68,6 +68,8 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- css -->
     <link rel="stylesheet" href="../asset/css/stylebayar.css">
+    <link rel="stylesheet" href="../asset/css/table-datatable.css">
+    <link rel="stylesheet" href="../asset/css/style-datatable.css">
 </head>
 <body>
 
@@ -248,11 +250,12 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
             <!-- End of Analyses -->
 
         <!-- Table -->
-            <div class="recent-orders">
+        <div class="recent-orders">
                 <a href="../buktipembayaran/tambah.php" class="tambah">
                     <span class="material-symbols-outlined">add</span>
                     <h3>Add Pembayaran</h3>
                 </a>
+            <div class="card-body" style="padding-top: 3rem;">
                 <table>
                     <thead>
                         <tr>
@@ -318,9 +321,8 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
                         ?>
                     <?php } ?>
                 </table>
-                <a href="#" class="show">Show All</a>
             </div>
-            
+        </div>  
         <!-- End of Table -->
 
         </main>
@@ -420,5 +422,7 @@ while ($row = mysqli_fetch_assoc($data_terdaftar_lvl)) {
     <script src="../asset/js/index.js"></script>
     <script src="../asset/js/sweetalert.js"></script>
     <script src="../asset/js/audio.js"></script>
+    <script src="../asset/js/simple-datatables_1.js"></script>
+    <script src="../asset/js/simple-datatables_2.js"></script>
 </body>
 </html>
